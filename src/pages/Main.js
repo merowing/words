@@ -9,31 +9,43 @@ function Main() {
     
     const [total_words, set_total_words] = useState(0);
     const [local_storage_size, set_local_storage_size] = useState(`${local_storage_get_size()}%`);
-    const [page, set_page] = useState(0);
+    const [page, set_page] = useState('Menu');
 
-    const pages = [
-        <Menu
+    const pages = {
+        "Menu": <Menu
             total_words={total_words}
             local_storage_size={local_storage_size}
-            set_page_index={set_page_index}
+            change_page_name={change_page_name}
         />,
-        <TodaysWords
-            set_page_index={set_page_index}
+        // "Today's words": <TodaysWords
+        //     set_page_index={set_page_index}
+        // />,
+        "New word": <NewWord
+            change_page_name={change_page_name}
+            add_to_local_storage={add_to_local_storage}
         />,
-        <NewWord
-            set_page_index={set_page_index}
-            update_local_storage_size={update_local_storage_size}
-        />,
-        <AllWords
-            set_page_index={set_page_index}
-        />,
-        <RandomWords
-            set_page_index={set_page_index}
-        />,
-    ];
+        // "All Words": <AllWords
+        //     set_page_index={set_page_index}
+        // />,
+        // "Random Words": <RandomWords
+        //     set_page_index={set_page_index}
+        // />,
+    };
 
-    function set_page_index(page_index) {
-        set_page(page_index);
+    function change_page_name(page_name) {
+        set_page(page_name);
+    }
+
+    function add_to_local_storage(data) {
+        const json = localStorage.getItem("words");
+        const words = (json)
+            ? JSON.parse(json)
+            : [];
+
+        words.push(data);
+        localStorage.setItem("words", JSON.stringify(words));
+        
+        update_local_storage_size();
     }
 
     function update_local_storage_size() {
@@ -60,9 +72,15 @@ function Main() {
     }
 
     return (
-        <div className="main">
-            {pages[page]}
-        </div>
+        <>
+            <div className='main'>
+                {pages[page]}
+            </div>
+            <footer>
+                <div>Available words: {total_words}</div>
+                <div>LocalStorage free space: {local_storage_size}</div>
+            </footer>
+        </>
     )
 }
 

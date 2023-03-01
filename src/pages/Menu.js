@@ -1,28 +1,24 @@
 const names = ['Today\'s words', 'New word', 'All words', 'Random words'];
 
-function Menu({total_words, local_storage_size, set_page_index}) {
+function Menu({change_page_name}) {
     return (
         <>
             <nav>
                 <ul>
                     {
-                        names.map((item, i) => {
+                        names.map((name, i) => {
                             return (
-                                <li key={`li-${item}-${i}`}>
+                                <li key={`li-${name}-${i}`}>
                                     <button
-                                        key={`button-${item}-${i}`}
-                                        onClick={() => set_page_index(i + 1)}
-                                    >{item}</button>
+                                        key={`button-${name}-${i}`}
+                                        onClick={() => change_page_name(name)}
+                                    >{name}</button>
                                 </li>
                             );
                         })
                     }
                 </ul>
             </nav>
-            <footer>
-                    <div>Available words: {total_words}</div>
-                    <div>LocalStorage free space: {local_storage_size}</div>
-            </footer>
         </>
     )
 }

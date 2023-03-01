@@ -1,0 +1,48 @@
+form {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-top: 60px;
+}
+form > * {
+    flex: 1 1 auto;
+    padding: 8px 10px;
+    box-sizing: border-box;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    outline: none;
+    font: normal 14px Verdana;
+}
+form > input {
+    width: 60px;
+}
+form > input.empty {
+    border: 1px solid red;
+}
+textarea {
+    vertical-align: top;
+    height: 100px;
+    resize: none;
+    width: 100%;
+}
+div.buttons {
+    display: flex;
+    justify-content: center;
+    border: 0;
+    padding: 0;
+}
+button.add_button {
+    background-color: green;
+    color: white;
+    border: 0;
+    padding: 6px 0;
+    width: 60px;
+    border-radius: 4px;
+    font: normal 17px Verdana;
+    cursor: pointer;
+    outline: none;
+}
+button.add_button:hover {
+    background-color: darkgreen;
+}
