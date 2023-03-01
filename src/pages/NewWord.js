@@ -1,6 +1,6 @@
 function NewWord() {
     return (
-        <></>
+        <p>New Word</p>
     )
 }
 
