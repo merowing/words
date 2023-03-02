@@ -17,6 +17,9 @@ form > * {
 form > input {
     width: 60px;
 }
+form > input:focus {
+    border: 1px solid gray;
+}
 form > input.empty {
     border: 1px solid red;
 }
@@ -26,6 +29,9 @@ textarea {
     resize: none;
     width: 100%;
 }
+textarea:focus {
+    border: 1px solid gray;
+}
 div.buttons {
     display: flex;
     justify-content: center;
@@ -33,8 +39,8 @@ div.buttons {
     padding: 0;
 }
 button.add_button {
-    background-color: green;
-    color: white;
+    background-color: white;
+    color: #2c2c2c;
     border: 0;
     padding: 6px 0;
     width: 60px;
@@ -42,7 +48,10 @@ button.add_button {
     font: normal 17px Verdana;
     cursor: pointer;
     outline: none;
+    border: 1px solid #ccc;
 }
 button.add_button:hover {
-    background-color: darkgreen;
+    border: 1px solid gray;
+    background-color: gray;
+    color: white;
 }
