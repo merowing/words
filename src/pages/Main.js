@@ -17,6 +17,7 @@ function Main() {
         />,
         "Daily words": <DailyWords
             change_page_name={change_page_name}
+            words={local_storage_daily()}
         />,
         "New word": <NewWord
             change_page_name={change_page_name}
@@ -110,6 +111,23 @@ function Main() {
             local_storage_update();
             set_total_words(total_words_length());
         }
+    }
+
+    function local_storage_daily() {
+        const json_string = localStorage.getItem("daily");
+        let words = [];
+        if(json_string) {
+            const data_words = local_storage_data();
+            const json = JSON.parse(json_string);
+
+            words = data_words.filter(word => {
+                if(json.words.includes(word.id)) {
+                    return word;
+                }
+            });
+        }
+
+        return words;
     }
 
     return (

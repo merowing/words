@@ -29,7 +29,6 @@ div.daily_block ul {
     align-items: center;
 }
 div.daily_block ul li {
-    width: 80px;
     text-align: center;
     margin-top: 40px;
 }
@@ -40,6 +39,7 @@ div.daily_block ul li button {
     font: normal 14px Verdana;
     padding: 6px 8px;
     cursor: pointer;
+    width: 80px;
 }
 div.daily_block ul li button:hover {
     background-color: gray;
