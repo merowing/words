@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import NewWord from './NewWord';
 import Menu from './Menu';
-import TodaysWords from './TodaysWords';
+import DailyWords from './DailyWords';
 import AllWords from './AllWords';
 import RandomWords from './RandomWords';
 
@@ -15,9 +15,9 @@ function Main() {
         "Menu": <Menu
             change_page_name={change_page_name}
         />,
-        // "Today's words": <TodaysWords
-        //     set_page_index={set_page_index}
-        // />,
+        "Daily words": <DailyWords
+            change_page_name={change_page_name}
+        />,
         "New word": <NewWord
             change_page_name={change_page_name}
             local_storage_add={local_storage_add}

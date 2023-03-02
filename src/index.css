@@ -60,6 +60,12 @@ nav ul li button:hover {
   border: 1px solid gray;
   color: white;
 }
+nav ul li button.disable {
+  color: #eee;
+  border: 1px solid lightgray;
+  background-color: #ccc;
+  cursor: not-allowed;
+}
 
 
 footer {
