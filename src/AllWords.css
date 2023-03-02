@@ -31,3 +31,22 @@ div.search > input {
     outline: none;
     width: 100%;
 }
+ul.control {
+    position: absolute;
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+ul.control li {
+    border: 1px solid #ccc;
+    font: italic 14px Verdana;
+    border-radius: 4px;
+    padding: 8px 14px;
+    cursor: pointer;
+}
+ul.control li:hover {
+    background-color: orange;
+    border: 1px solid orangered;
+    color: white;
+}

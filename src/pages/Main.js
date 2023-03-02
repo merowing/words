@@ -25,6 +25,7 @@ function Main() {
         "My words": <AllWords
             change_page_name={change_page_name}
             words={local_storage_get()}
+            remove_words={local_storage_remove}
         />,
         // "Random Words": <RandomWords
         //     set_page_index={set_page_index}
@@ -52,7 +53,11 @@ function Main() {
             ? JSON.parse(json)
             : [];
 
-        const id = total_words_length();
+        let id = (words.length)
+            ? parseInt(words.at(-1).id) + 1
+            : 0;
+        id = id.toString();
+
         data = {id, ...data};
         words.push(data);
         localStorage.setItem("words", JSON.stringify(words));
@@ -89,6 +94,18 @@ function Main() {
 
         const percentage = (1 - ls_total / max_size) * 100;
         return Math.floor(percentage * 100) / 100;
+    }
+
+    function local_storage_remove(ids) {
+        const json = local_storage_get();
+
+        if(json) {
+            const data = json.filter(item => !ids.includes(item.id));
+            
+            localStorage.setItem("words", JSON.stringify(data));
+            local_storage_update();
+            set_total_words(total_words_length());
+        }
     }
 
     return (
