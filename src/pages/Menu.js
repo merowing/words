@@ -1,4 +1,4 @@
-const names = ['Today\'s words', 'New word', 'All words', 'Random words'];
+const names = ['Today\'s words', 'New word', 'My words', 'Random words'];
 
 function Menu({change_page_name}) {
     return (

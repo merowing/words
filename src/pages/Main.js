@@ -22,9 +22,10 @@ function Main() {
             change_page_name={change_page_name}
             local_storage_add={local_storage_add}
         />,
-        // "All Words": <AllWords
-        //     set_page_index={set_page_index}
-        // />,
+        "My words": <AllWords
+            change_page_name={change_page_name}
+            words={local_storage_get()}
+        />,
         // "Random Words": <RandomWords
         //     set_page_index={set_page_index}
         // />,
@@ -60,6 +61,13 @@ function Main() {
 
     function local_storage_update() {
         set_local_storage_size(`${local_storage_get_size()}%`);
+    }
+    function local_storage_get() {
+        const data = localStorage.getItem("words");
+
+        return (data)
+            ? JSON.parse(data)
+            : [];
     }
 
     function local_storage_get_size() {

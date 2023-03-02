@@ -1,0 +1,16 @@
+div.words {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 8px;
+    overflow-y: auto;
+    margin-top: 60px;
+    padding-bottom: 20px;
+    padding-right: 10px;
+}
+div.words > span {
+    border: 1px solid #ccc;
+    padding: 4px 8px;
+    border-radius: 16px;
+    user-select: none;
+}
