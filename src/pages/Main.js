@@ -7,14 +7,12 @@ import RandomWords from './RandomWords';
 
 function Main() {
     
-    const [total_words, set_total_words] = useState(0);
+    const [total_words, set_total_words] = useState(total_words_length());
     const [local_storage_size, set_local_storage_size] = useState(`${local_storage_get_size()}%`);
     const [page, set_page] = useState('Menu');
 
     const pages = {
         "Menu": <Menu
-            total_words={total_words}
-            local_storage_size={local_storage_size}
             change_page_name={change_page_name}
         />,
         // "Today's words": <TodaysWords
@@ -22,7 +20,7 @@ function Main() {
         // />,
         "New word": <NewWord
             change_page_name={change_page_name}
-            add_to_local_storage={add_to_local_storage}
+            local_storage_add={local_storage_add}
         />,
         // "All Words": <AllWords
         //     set_page_index={set_page_index}
@@ -36,7 +34,18 @@ function Main() {
         set_page(page_name);
     }
 
-    function add_to_local_storage(data) {
+    function total_words_length() {
+        const json = localStorage.getItem("words");
+        if(json) {
+            const data = JSON.parse(json);
+
+            return data.length;
+        }
+
+        return 0;
+    }
+
+    function local_storage_add(data) {
         const json = localStorage.getItem("words");
         const words = (json)
             ? JSON.parse(json)
@@ -45,10 +54,11 @@ function Main() {
         words.push(data);
         localStorage.setItem("words", JSON.stringify(words));
         
-        update_local_storage_size();
+        local_storage_update();
+        set_total_words(words.length);
     }
 
-    function update_local_storage_size() {
+    function local_storage_update() {
         set_local_storage_size(`${local_storage_get_size()}%`);
     }
 

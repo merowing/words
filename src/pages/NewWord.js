@@ -1,7 +1,7 @@
 import Close from './Close.js';
 import '../NewWord.css';
 
-function NewWord({change_page_name, add_to_local_storage}) {
+function NewWord({change_page_name, local_storage_add}) {
 
     function get_form_data(event) {
         event.preventDefault();
@@ -15,7 +15,7 @@ function NewWord({change_page_name, add_to_local_storage}) {
         
         if(data.name !== "" && data.translate !== "") {
             event.target.reset();
-            add_to_local_storage(data);
+            local_storage_add(data);
         }
     }
 
