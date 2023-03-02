@@ -52,6 +52,8 @@ function Main() {
             ? JSON.parse(json)
             : [];
 
+        const id = total_words_length();
+        data = {id, ...data};
         words.push(data);
         localStorage.setItem("words", JSON.stringify(words));
         
