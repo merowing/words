@@ -24,7 +24,7 @@ function AllWords({words, change_page_name, remove_words}) {
                 set_ids(temp_ids);
 
                 if(!temp_ids.length) {
-                    set_show_control(!show_control);
+                    set_show_control(false);
                 }
             }
         }
@@ -41,6 +41,7 @@ function AllWords({words, change_page_name, remove_words}) {
             const data = words.filter(word => !ids.includes(word.id));
             set_list(data);
             set_ids([]);
+            set_show_control(false);
 
             remove_words(ids);
         }

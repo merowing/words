@@ -8,7 +8,7 @@ import RandomWords from './RandomWords';
 function Main() {
     
     const [total_words, set_total_words] = useState(total_words_length());
-    const [local_storage_size, set_local_storage_size] = useState(`${local_storage_get_size()}%`);
+    const [local_storage_size, set_local_storage_size] = useState(`${local_storage_data_size()}%`);
     const [page, set_page] = useState('Menu');
 
     const pages = {
@@ -24,7 +24,7 @@ function Main() {
         />,
         "My words": <AllWords
             change_page_name={change_page_name}
-            words={local_storage_get()}
+            words={local_storage_data()}
             remove_words={local_storage_remove}
         />,
         // "Random Words": <RandomWords
@@ -67,9 +67,13 @@ function Main() {
     }
 
     function local_storage_update() {
-        set_local_storage_size(`${local_storage_get_size()}%`);
+        if(!local_storage_data().length) {
+            localStorage.removeItem("words");
+        }
+
+        set_local_storage_size(`${local_storage_data_size()}%`);
     }
-    function local_storage_get() {
+    function local_storage_data() {
         const data = localStorage.getItem("words");
 
         return (data)
@@ -77,14 +81,14 @@ function Main() {
             : [];
     }
 
-    function local_storage_get_size() {
+    function local_storage_data_size() {
         const max_size = 5 * 1024 * 1024;
         let ls_total = 0,
             value_len,
             value;
 
         for (value in localStorage) {
-            if (!Object.hasOwn(localStorage, value)) {
+            if (!Object.hasOwn(localStorage, value) || value === "daily") {
                 continue;
             }
             
@@ -97,7 +101,7 @@ function Main() {
     }
 
     function local_storage_remove(ids) {
-        const json = local_storage_get();
+        const json = local_storage_data();
 
         if(json) {
             const data = json.filter(item => !ids.includes(item.id));
