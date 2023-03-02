@@ -117,7 +117,13 @@ function Main() {
             <div className='main'>
                 {pages[page]}
             </div>
-            <footer>
+            <footer
+                className={
+                    (page === 'Daily words' || page === 'Random words')
+                        ? 'hidden'
+                        : ''
+                }
+                >
                 <div>Available words: {total_words}</div>
                 <div>LocalStorage free space: {local_storage_size}</div>
             </footer>

@@ -17,11 +17,11 @@ ul {
   display: flex;
   flex-direction: column;
   position: relative;
-  padding-bottom: 20px;
 }
 .close_button {
   position: absolute;
   right: 0;
+  top: 0;
   border: 1px solid #ccc;
   width: 40px;
   height: 40px;
@@ -71,7 +71,11 @@ nav ul li button.disable {
 footer {
   text-align: center;
   font: italic 14px Consolas;
+  margin-top: 20px;
 }
 footer > * {
   padding: 4px 0;
+}
+footer.hidden {
+  visibility: hidden;
 }
