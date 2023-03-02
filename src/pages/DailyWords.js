@@ -46,12 +46,25 @@ function DailyWords({change_page_name, words}) {
         }
     }
 
+    let [mouse_active_name, set_mouse_active_name] = useState(true);
+    function change_name() {
+        set_mouse_active_name(!mouse_active_name);
+    }
+
     return (
         <>
             <Close change_page_name={change_page_name} />
             <div className='daily_block'>
                 <div className='daily_word'>
-                    <span className='word'>{current_word.word.name}</span>
+                    <span className='word'
+                        onMouseOver={change_name}
+                        onMouseOut={change_name}
+                    >{
+                        (mouse_active_name)
+                            ? current_word.word.name
+                            : current_word.word.translate
+                    }
+                    </span>
                     <span className='example'>{current_word.word.sentence}</span>
                 </div>
                 <ul>
