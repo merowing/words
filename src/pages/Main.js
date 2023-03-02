@@ -115,19 +115,9 @@ function Main() {
 
     function local_storage_daily() {
         const json_string = localStorage.getItem("daily");
-        let words = [];
         if(json_string) {
-            const data_words = local_storage_data();
-            const json = JSON.parse(json_string);
-
-            words = data_words.filter(word => {
-                if(json.words.includes(word.id)) {
-                    return word;
-                }
-            });
+            return JSON.parse(json_string).words;
         }
-
-        return words;
     }
 
     return (

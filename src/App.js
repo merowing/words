@@ -2,11 +2,23 @@ import Main from './pages/Main';
 
 daily();
 
+function local_storage_words() {
+  const json_string = localStorage.getItem("words");
+  if(json_string) {
+    return JSON.parse(json_string)
+      .filter(item => unique().includes(item.id));
+  }
+
+  return [];
+}
+
 function set_daily_default() {
+  const words = local_storage_words();
+
   const daily = {
       time: Date.now(),
       active: true,
-      words: unique(),
+      words,
   };
   localStorage.setItem("daily", JSON.stringify(daily));
 }
@@ -16,16 +28,17 @@ function daily() {
 
   if(json_string) {
       const data = JSON.parse(json_string);
+      const words = local_storage_words();
       
       const date_string = new Date(data.time).toDateString();
-      const twenty_four_hours = 86400000;
+      const twenty_four_hours = 72000000; //86400000;
       const time_passed = Date.now() - (new Date(date_string));
 
       if(twenty_four_hours - time_passed <= 0) {
         const new_data = {
           time: Date.now(),
           active: true,
-          words: unique(),
+          words,
         }
         
         localStorage.setItem("daily", JSON.stringify(new_data));
