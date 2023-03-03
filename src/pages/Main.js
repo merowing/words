@@ -39,7 +39,7 @@ function Main() {
 
     function total_words_length() {
         const json = localStorage.getItem("words");
-        if(json) {
+        if (json) {
             const data = JSON.parse(json);
 
             return data.length;
@@ -68,11 +68,11 @@ function Main() {
     }
 
     function local_storage_update() {
-        if(!local_storage_data().length) {
+        if (!local_storage_data().length) {
             localStorage.removeItem("words");
         }
 
-        set_local_storage_size(`${local_storage_data_size()}%`);
+        set_local_storage_size(`${ local_storage_data_size() }%`);
     }
     function local_storage_data() {
         const data = localStorage.getItem("words");
@@ -84,27 +84,31 @@ function Main() {
 
     function local_storage_data_size() {
         const max_size = 5 * 1024 * 1024;
-        let ls_total = 0,
-            value_len,
-            value;
+        let daily_len = 0;
+        let value_len = 0;
+        let ls_total = 0;
 
-        for (value in localStorage) {
-            if (!Object.hasOwn(localStorage, value) || value === "daily") {
+        for (let value in localStorage) {
+            if (!Object.hasOwn(localStorage, value)) {
                 continue;
             }
-            
-            value_len = ((localStorage[value].length + value.length) * 2);
-            ls_total += value_len;
-        };
 
-        const percentage = (1 - ls_total / max_size) * 100;
+            if (value === "daily") {
+                daily_len = (localStorage[value].length + value.length) * 2;
+            }else {
+                value_len = (localStorage[value].length + value.length) * 2;
+                ls_total += value_len;
+            }
+        };
+        
+        const percentage = (1 - ls_total / (max_size - daily_len)) * 100;
         return Math.floor(percentage * 100) / 100;
     }
 
     function local_storage_remove(ids) {
         const json = local_storage_data();
 
-        if(json) {
+        if (json) {
             const data = json.filter(item => !ids.includes(item.id));
             
             localStorage.setItem("words", JSON.stringify(data));
@@ -115,7 +119,7 @@ function Main() {
 
     function local_storage_daily() {
         const json_string = localStorage.getItem("daily");
-        if(json_string) {
+        if (json_string) {
             return JSON.parse(json_string).words;
         }
     }
