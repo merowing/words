@@ -66,11 +66,11 @@ function WordsPage({words}) {
                     <li>
                         <button onClick={() => next_word(-1)}>Previous</button>
                     </li>
+                    <li>{`${id + 1} / ${words.length}`}</li>
                     <li>
                         <button onClick={() => next_word(1)}>Next</button>
                     </li>
                 </ul>
-                <div>{`${id + 1} / ${words.length}`}</div>
             </div>
         </>
     );

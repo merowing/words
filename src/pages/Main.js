@@ -15,6 +15,7 @@ function Main() {
     const pages = {
         "Menu": <Menu
             change_page_name={change_page_name}
+            words_len={total_words_length()}
         />,
         "Daily words": <DailyWords
             change_page_name={change_page_name}
@@ -152,7 +153,7 @@ function Main() {
             </div>
             <footer
                 className={
-                    (page === 'Daily words' || page === 'Random words')
+                    (page === 'Daily words' || page === 'Random words' || page === 'Learn words')
                         ? 'hidden'
                         : ''
                 }

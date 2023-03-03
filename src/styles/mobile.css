@@ -1,0 +1,93 @@
+@media (min-width: 360px) and (max-width: 667px) {
+    #root {
+        height: 100vh;
+        padding: 20px;
+        box-sizing: border-box;
+    }
+    .main {
+        width: 100%;
+        height: 100%;
+    }
+    .main nav {
+        flex: none;
+        padding-top: 120px;
+    }
+    .main nav button {
+        width: 240px;
+        font: normal 16px Arial;
+        padding: 18px 6px;
+    }
+    footer {
+        width: 100%;
+        margin-bottom: 60px;
+    }
+
+    div.top {
+        margin-bottom: 20px;
+    }
+    .top > button {
+        width: auto;
+    }
+
+    .main form {
+        flex-direction: column;
+        width: 100%;
+        gap: 15px;
+    }
+    .main form textarea {
+        height: 140px;
+    }
+    .main form input {
+        width: 100%;
+        padding: 12px 8px;
+    }
+    .buttons button.add_button {
+        padding: 12px 0;
+        width: 100px;
+    }
+    .buttons button.add_button:hover {
+        background: none;
+        color: #000;
+    }
+
+
+    .words {
+        width: 100%;
+    }
+
+
+    .main div.search > input {
+        padding: 8px 0;
+    }
+
+    .main div.daily_block {
+        gap: 10px;
+    }
+    .main div.daily_block ul {
+        justify-content: space-between;
+        order: 3;
+    }
+    .main div.daily_block ul li button {
+        height: 40px;
+    }
+    .main div.daily_block ul li button:hover {
+        background: none;
+        color: black;
+    }
+    div.daily_word {
+        height: 100%;
+        justify-content: center;
+        order: 1;
+    }
+
+
+    footer.hidden {
+        display: none;
+    }
+
+
+    div.left_buttons button:hover {
+        background: none;
+        color: #000;
+    }
+}

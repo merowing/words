@@ -1,11 +1,11 @@
 const names = ['Daily words', 'New word', 'My words', 'Random words'];
 
-function daily_status() {
+function daily_status(words_len) {
     const json_string = localStorage.getItem("daily");
     if (json_string) {
         const {active} = JSON.parse(json_string);
 
-        return (active)
+        return (active && words_len)
             ? ''
             : 'disable';
     }
@@ -13,7 +13,7 @@ function daily_status() {
     return '';
 }
 
-function Menu({change_page_name}) {
+function Menu({change_page_name, words_len}) {
     return (
         <>
             <nav>
@@ -21,13 +21,14 @@ function Menu({change_page_name}) {
                     {
                         names.map((name, i) => {
                             let class_string = (i === 0)
-                                ? daily_status()
+                                ? daily_status(words_len)
                                 : '';
 
                             return (
                                 <li key={`li-${name}-${i}`}>
                                     <button
                                         key={`button-${name}-${i}`}
+                                        type="button"
                                         onClick={
                                             (class_string === '')
                                                 ? () => change_page_name(name)

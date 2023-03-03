@@ -4,6 +4,7 @@ ul {
   margin: 0;
 }
 
+
 #root {
   display: flex;
   justify-content: center;
@@ -19,6 +20,13 @@ ul {
   flex-direction: column;
   position: relative;
   align-items: center;
+}
+div.empty {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font: bold 24px Arial;
 }
 
 

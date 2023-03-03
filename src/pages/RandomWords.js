@@ -45,7 +45,11 @@ function RandomWords({change_page_name}) {
                 refresh={refresh}
                 change_page_name={change_page_name}
             />
-            <Words words={words} />
+            {
+                (words.length)
+                    ? <Words words={words} />
+                    : <div className='empty'><span>Empty</span></div>
+            }
         </>
     );
 }
