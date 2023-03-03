@@ -21,14 +21,9 @@ ul {
   align-items: center;
 }
 .close_button {
-  position: absolute;
-  right: 0;
-  top: 0;
   border: 1px solid #ccc;
-  width: 40px;
-  height: 40px;
-  border-radius: 20px;
-  font-size: 17px;
+  padding: 6px 8px;
+  border-radius: 4px;
   background-color: white;
 }
 .close_button:hover {

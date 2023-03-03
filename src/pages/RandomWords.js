@@ -1,7 +1,6 @@
 import { useCallback, useEffect, useState } from 'react';
-import Close from './Close';
-import RefreshButton from './buttons/Refresh';
-import WordsPage from './WordsPage';
+import Words from './Words';
+import Top from './Top';
 
 function RandomWords({change_page_name}) {
     let [words, set_words] = useState([{}]);
@@ -16,7 +15,7 @@ function RandomWords({change_page_name}) {
             const rand = Math.round(Math.random() * (ids.length - 1));
             indexes.push(...ids.splice(rand, 1));
         }
-        
+        console.log(indexes);
         return indexes;
     }, []);
 
@@ -37,14 +36,16 @@ function RandomWords({change_page_name}) {
     }, [random_words]);
 
     useEffect(() => {
-        refresh();
-    }, [refresh]);
+        set_words(random_words());
+    }, []);
 
     return (
         <>
-            <Close change_page_name={change_page_name} />
-            <WordsPage words={words} />
-            <RefreshButton refresh={refresh}/>
+            <Top
+                refresh={refresh}
+                change_page_name={change_page_name}
+            />
+            <Words words={words} />
         </>
     );
 }

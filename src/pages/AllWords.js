@@ -1,5 +1,5 @@
 import {useState} from 'react';
-import Close from './Close';
+import Close from './buttons/Close';
 import Search from './Search';
 import Control from './AllWordsButtons';
 import '../AllWords.css';

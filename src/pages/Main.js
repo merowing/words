@@ -6,7 +6,6 @@ import AllWords from './AllWords';
 import RandomWords from './RandomWords';
 
 function Main() {
-    
     const [total_words, set_total_words] = useState(total_words_length());
     const [local_storage_size, set_local_storage_size] = useState(`${local_storage_data_size()}%`);
     const [page, set_page] = useState('Menu');

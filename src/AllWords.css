@@ -54,3 +54,14 @@ ul.control button:hover {
     border: 1px solid gray;
     color: white;
 }
+
+
+.top {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+}
+.top button {
+    font: normal 14px Verdana;
+}

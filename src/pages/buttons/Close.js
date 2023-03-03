@@ -5,7 +5,7 @@ function Close({change_page_name}) {
             onClick={
                 () => change_page_name("Menu")
             }
-        >x</button>
+        >Back</button>
     )
 }
 

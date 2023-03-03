@@ -1,6 +1,6 @@
 import '../DailyWords.css';
-import WordsPage from './WordsPage';
-import Close from './Close';
+import Words from './Words';
+import Close from './buttons/Close';
 
 function DailyWords({change_page_name, words}) {
     const json_string = localStorage.getItem("daily");
@@ -11,7 +11,7 @@ function DailyWords({change_page_name, words}) {
     return (
         <>
             <Close change_page_name={change_page_name} />
-            <WordsPage words={words} />
+            <Words words={words} />
         </>
     )
 }

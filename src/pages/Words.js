@@ -36,7 +36,6 @@ function WordsPage({words}) {
 
     useEffect(() => {
         set_current_word({id: 0, word: words[0]});
-        //console.log(words);
     }, [words]);
 
     useEffect(() => {

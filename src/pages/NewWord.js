@@ -1,4 +1,4 @@
-import Close from './Close.js';
+import Close from './buttons/Close.js';
 import '../NewWord.css';
 
 function NewWord({change_page_name, local_storage_add}) {
