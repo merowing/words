@@ -42,6 +42,7 @@ div.daily_block ul li button {
     padding: 6px 8px;
     cursor: pointer;
     width: 80px;
+    outline: none;
 }
 div.daily_block ul li button:hover {
     background-color: gray;

@@ -22,6 +22,7 @@ div.search {
     text-align: center;
     margin: 60px 0 16px 0;
     border-bottom: 1px solid #ccc;
+    width: 100%;
 }
 div.search > input {
     padding: 6px 8px;
@@ -32,21 +33,24 @@ div.search > input {
     width: 100%;
 }
 ul.control {
-    position: absolute;
     list-style: none;
     display: flex;
     flex-direction: row;
     gap: 10px;
+    align-self: flex-start;
 }
-ul.control li {
+
+ul.control button {
     border: 1px solid #ccc;
     font: italic 14px Verdana;
     border-radius: 4px;
     padding: 8px 14px;
     cursor: pointer;
+    background: none;
+    outline: none;
 }
-ul.control li:hover {
-    background-color: orange;
-    border: 1px solid orangered;
+ul.control button:hover {
+    background-color: gray;
+    border: 1px solid gray;
     color: white;
 }

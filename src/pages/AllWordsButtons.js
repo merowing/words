@@ -1,8 +1,11 @@
+import Remove from './buttons/Remove';
+
 function Control({remove}) {
     return (
         <ul className="control">
-            <li>Learn</li>
-            <li onClick={remove}>Remove</li>
+            <li>
+                <Remove remove={remove} />
+            </li>
         </ul>
     )
 }
