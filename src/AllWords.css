@@ -20,7 +20,7 @@ div.words > span.select {
 }
 div.search {
     text-align: center;
-    margin: 60px 0 16px 0;
+    margin-bottom: 16px;
     border-bottom: 1px solid #ccc;
     width: 100%;
 }
@@ -32,28 +32,6 @@ div.search > input {
     outline: none;
     width: 100%;
 }
-ul.control {
-    list-style: none;
-    display: flex;
-    flex-direction: row;
-    gap: 10px;
-    align-self: flex-start;
-}
-
-ul.control button {
-    border: 1px solid #ccc;
-    font: italic 14px Verdana;
-    border-radius: 4px;
-    padding: 8px 14px;
-    cursor: pointer;
-    background: none;
-    outline: none;
-}
-ul.control button:hover {
-    background-color: gray;
-    border: 1px solid gray;
-    color: white;
-}
 
 
 .top {
@@ -61,7 +39,23 @@ ul.control button:hover {
     width: 100%;
     align-items: center;
     justify-content: space-between;
+    margin-bottom: 40px;
 }
 .top button {
     font: normal 14px Verdana;
+    background: none;
+    border: 1px solid #ccc;
+    padding: 6px 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    outline: none;
+}
+.top button:hover {
+    background-color: gray;
+    color: white;
+    border: 1px solid gray;
+}
+.top .left_buttons {
+    display: flex;
+    gap: 10px;
 }

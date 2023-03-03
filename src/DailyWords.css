@@ -49,18 +49,3 @@ div.daily_block ul li button:hover {
     color:white;
     border: 1px solid gray;
 }
-
-
-.refresh_button {
-    background: none;
-    border: 1px solid #ccc;
-    padding: 6px 8px;
-    border-radius: 4px;
-    cursor: pointer;
-    outline: none;
-}
-.refresh_button:hover {
-    background-color: gray;
-    color: white;
-    border: 1px solid gray;
-}

@@ -1,14 +1,14 @@
 import {useState} from 'react';
-import Close from './buttons/Close';
 import Search from './Search';
-import Control from './AllWordsButtons';
+import Top from './Top';
 import '../AllWords.css';
 
-function AllWords({words, change_page_name, remove_words}) {
+function AllWords({words, change_page_name, remove_words, learn_words}) {
 
     let [list, set_list] = useState(words);
     let [ids, set_ids] = useState([]);
     let [show_control, set_show_control] = useState(false);
+    let [chose_words, set_chose_words] = useState([]);
 
     function select_word(event) {
         if(event.target.tagName === 'SPAN') {
@@ -18,10 +18,12 @@ function AllWords({words, change_page_name, remove_words}) {
                 event.target.classList.add('select');
                 set_ids([...ids, id]);
                 set_show_control(true);
+                set_chose_words([...ids, id]);
             }else {
                 event.target.classList.remove('select');
                 const temp_ids = ids.filter(num => id !== num);
                 set_ids(temp_ids);
+                set_chose_words(temp_ids);
 
                 if(!temp_ids.length) {
                     set_show_control(false);
@@ -49,14 +51,19 @@ function AllWords({words, change_page_name, remove_words}) {
 
     return (
         <>
-            <Close change_page_name={change_page_name} />
+            {/* <Close change_page_name={change_page_name} />
             {
                 (show_control) 
                     ? <Control
                         remove={remove}
                     />
                     : <></>
-            }
+            } */}
+            <Top
+                change_page_name={change_page_name}
+                all_words={{show_control, remove, learn_words, chose_words}}
+            />
+
             <Search search_word={search_word}/>
             <div className='words' onClick={(event) => select_word(event)}>
                 {

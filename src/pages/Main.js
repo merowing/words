@@ -4,11 +4,13 @@ import Menu from './Menu';
 import DailyWords from './DailyWords';
 import AllWords from './AllWords';
 import RandomWords from './RandomWords';
+import LearnWords from './LearnWords';
 
 function Main() {
     const [total_words, set_total_words] = useState(total_words_length());
     const [local_storage_size, set_local_storage_size] = useState(`${local_storage_data_size()}%`);
     const [page, set_page] = useState('Menu');
+    const [learn, set_learn] = useState([]);
 
     const pages = {
         "Menu": <Menu
@@ -26,9 +28,14 @@ function Main() {
             change_page_name={change_page_name}
             words={local_storage_data()}
             remove_words={local_storage_remove}
+            learn_words={learn_words}
         />,
         "Random words": <RandomWords
             change_page_name={change_page_name}
+        />,
+        "Learn words": <LearnWords 
+            change_page_name={change_page_name}
+            words={learn}
         />,
     };
 
@@ -45,6 +52,20 @@ function Main() {
         }
 
         return 0;
+    }
+
+    function learn_words(learn_words) {
+
+        const data = local_storage_data();
+        if(data) {
+            let words = [];
+            for(let word of data) {
+                if(learn_words.includes(word.id)) {
+                    words.push(word);
+                }
+            }
+            set_learn(words);
+        }
     }
 
     function local_storage_add(data) {
@@ -73,6 +94,7 @@ function Main() {
 
         set_local_storage_size(`${ local_storage_data_size() }%`);
     }
+
     function local_storage_data() {
         const data = localStorage.getItem("words");
 
