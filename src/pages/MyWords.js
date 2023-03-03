@@ -49,11 +49,16 @@ function AllWords({words, change_page_name, remove_words, learn_words}) {
         }
     }
 
+    function clean() {
+        set_ids([]);
+        set_show_control(false);
+    }
+
     return (
         <>
             <Top
                 change_page_name={change_page_name}
-                all_words={{show_control, remove, learn_words, chose_words}}
+                all_words={{show_control, remove, clean, learn_words, chose_words}}
             />
 
             <Search search_word={search_word}/>

@@ -1,13 +1,10 @@
-import Close from '../buttons/Close';
-import RefreshButton from '../buttons/Refresh';
-import Remove from '../buttons/Remove';
-import Learn from '../buttons/Learn';
+import {Close, Refresh, Remove, Learn, Deselect} from './Buttons.js';
 
 function Top({change_page_name, refresh, all_words, page_name}) {
     let buttons = [];
 
     if (all_words) {
-        let {show_control, remove, learn_words, chose_words} = all_words;
+        let {show_control, remove, clean, learn_words, chose_words} = all_words;
         if (show_control) {
             buttons = [
                 <Learn
@@ -18,7 +15,12 @@ function Top({change_page_name, refresh, all_words, page_name}) {
                 />,
                 <Remove
                     key="remove-button"
-                    remove={remove} />
+                    remove={remove}
+                />,
+                <Deselect
+                    key="clean-button"
+                    clean={clean}
+                />,
             ]
         }
     }
@@ -28,7 +30,7 @@ function Top({change_page_name, refresh, all_words, page_name}) {
             <div className="left_buttons">
                 {
                     (refresh)
-                        ? <RefreshButton refresh={refresh} />
+                        ? <Refresh refresh={refresh} />
                         : <></>
                 }
 
