@@ -13,6 +13,7 @@ ul {
 }
 .main {
   width: 400px;
+  box-sizing: border-box;
   height: 360px;
   display: flex;
   flex-direction: column;

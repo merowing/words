@@ -1,6 +1,6 @@
 import Close from './Close';
 import '../DailyWords.css';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 
 function DailyWords({change_page_name, words}) {
     const json_string = localStorage.getItem("daily");
@@ -10,7 +10,7 @@ function DailyWords({change_page_name, words}) {
 
     let [current_word, set_current_word] = useState({id: 0, word: words[0]});
 
-    function next_word(id) {
+    const next_word = useCallback((id) => {
         id = current_word.id + id;
         if(id < 0) {
             id = words.length - 1;
@@ -25,14 +25,9 @@ function DailyWords({change_page_name, words}) {
                 word: words[id],
             }
         );
-    }
+    }, [current_word, words]);
 
-    useEffect(() => {
-        document.addEventListener('keydown', arrows_press);
-        return () => document.removeEventListener('keydown', arrows_press);
-    }, [arrows_press]);
-
-    function arrows_press(event) {
+    const arrows_press = useCallback((event) => {
         const key = event.key;
 
         switch(key) {
@@ -44,7 +39,12 @@ function DailyWords({change_page_name, words}) {
                 break;
             default:
         }
-    }
+    }, [next_word]);
+
+    useEffect(() => {
+        document.addEventListener('keydown', arrows_press);
+        return () => document.removeEventListener('keydown', arrows_press);
+    }, [arrows_press]);
 
     let [mouse_active_name, set_mouse_active_name] = useState(true);
     function change_name() {

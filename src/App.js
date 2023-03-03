@@ -12,7 +12,6 @@ function local_storage_words() {
         const item = json.filter(item => item.id === id);
         return [...arr, ...item];
       }, []);
-
   }
 
   return [];
@@ -26,6 +25,7 @@ function set_daily_default() {
       active: true,
       words,
   };
+  if(words.length === 0) daily.active = false;
   localStorage.setItem("daily", JSON.stringify(daily));
 }
 
@@ -35,7 +35,7 @@ function daily() {
   if(json_string) {
       const data = JSON.parse(json_string);
       const words = local_storage_words();
-      console.log(words);
+
       const date_string = new Date(data.time).toDateString();
       const twenty_four_hours = 86400000;
       const time_passed = Date.now() - (new Date(date_string));
@@ -71,7 +71,6 @@ function unique(max = 10) {
       indexes.push(...arr.splice(ind, 1));
   }
 
-  console.log(indexes);
   return indexes;
 }
 

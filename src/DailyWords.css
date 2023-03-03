@@ -19,6 +19,7 @@ div.daily_word span.word {
 div.daily_word span.example {
     font-style: italic;
     color: gray;
+    height: 60px;
 }
 
 div.daily_block ul {
@@ -27,10 +28,10 @@ div.daily_block ul {
     width: 100%;
     justify-content: space-evenly;
     align-items: center;
+    margin-top: 10px;
 }
 div.daily_block ul li {
     text-align: center;
-    margin-top: 40px;
 }
 div.daily_block ul li button {
     background: none;
