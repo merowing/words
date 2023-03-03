@@ -2,7 +2,7 @@ import { useState } from 'react';
 import NewWord from './NewWord';
 import Menu from './Menu';
 import DailyWords from './DailyWords';
-import AllWords from './AllWords';
+import MyWords from './MyWords';
 import RandomWords from './RandomWords';
 import LearnWords from './LearnWords';
 
@@ -24,7 +24,7 @@ function Main() {
             change_page_name={change_page_name}
             local_storage_add={local_storage_add}
         />,
-        "My words": <AllWords
+        "My words": <MyWords
             change_page_name={change_page_name}
             words={local_storage_data()}
             remove_words={local_storage_remove}
@@ -57,10 +57,10 @@ function Main() {
     function learn_words(learn_words) {
 
         const data = local_storage_data();
-        if(data) {
+        if (data) {
             let words = [];
-            for(let word of data) {
-                if(learn_words.includes(word.id)) {
+            for (let word of data) {
+                if (learn_words.includes(word.id)) {
                     words.push(word);
                 }
             }
@@ -116,7 +116,7 @@ function Main() {
 
             if (value === "daily") {
                 daily_len = (localStorage[value].length + value.length) * 2;
-            }else {
+            } else {
                 value_len = (localStorage[value].length + value.length) * 2;
                 ls_total += value_len;
             }

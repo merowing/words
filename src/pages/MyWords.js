@@ -1,7 +1,7 @@
 import {useState} from 'react';
-import Search from './Search';
-import Top from './Top';
-import '../AllWords.css';
+import Search from './components/Search';
+import Top from './components/Top';
+import '../styles/AllWords.css';
 
 function AllWords({words, change_page_name, remove_words, learn_words}) {
 
@@ -11,21 +11,21 @@ function AllWords({words, change_page_name, remove_words, learn_words}) {
     let [chose_words, set_chose_words] = useState([]);
 
     function select_word(event) {
-        if(event.target.tagName === 'SPAN') {
+        if (event.target.tagName === 'SPAN') {
             const id = event.target.id;
 
-            if(!event.target.classList.contains('select')) {
+            if (!event.target.classList.contains('select')) {
                 event.target.classList.add('select');
                 set_ids([...ids, id]);
                 set_show_control(true);
                 set_chose_words([...ids, id]);
-            }else {
+            } else {
                 event.target.classList.remove('select');
                 const temp_ids = ids.filter(num => id !== num);
                 set_ids(temp_ids);
                 set_chose_words(temp_ids);
 
-                if(!temp_ids.length) {
+                if (!temp_ids.length) {
                     set_show_control(false);
                 }
             }
@@ -39,7 +39,7 @@ function AllWords({words, change_page_name, remove_words, learn_words}) {
     }
 
     function remove() {
-        if(ids.length) {
+        if (ids.length) {
             const data = words.filter(word => !ids.includes(word.id));
             set_list(data);
             set_ids([]);
@@ -51,14 +51,6 @@ function AllWords({words, change_page_name, remove_words, learn_words}) {
 
     return (
         <>
-            {/* <Close change_page_name={change_page_name} />
-            {
-                (show_control) 
-                    ? <Control
-                        remove={remove}
-                    />
-                    : <></>
-            } */}
             <Top
                 change_page_name={change_page_name}
                 all_words={{show_control, remove, learn_words, chose_words}}
@@ -69,7 +61,7 @@ function AllWords({words, change_page_name, remove_words, learn_words}) {
                 {
                     list.map((word, i) => {
                         let class_name = '';
-                        if(word.id) {
+                        if (word.id) {
                             class_name = (ids.includes(word.id))
                                 ? 'select'
                                 : '';

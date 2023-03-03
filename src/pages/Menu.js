@@ -2,7 +2,7 @@ const names = ['Daily words', 'New word', 'My words', 'Random words'];
 
 function daily_status() {
     const json_string = localStorage.getItem("daily");
-    if(json_string) {
+    if (json_string) {
         const {active} = JSON.parse(json_string);
 
         return (active)

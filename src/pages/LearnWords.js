@@ -1,5 +1,5 @@
-import Words from './Words';
-import Top from './Top';
+import Words from './components/Words';
+import Top from './components/Top';
 
 function LearnWords({words, change_page_name}) {
     return (

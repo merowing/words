@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from 'react';
-import Words from './Words';
-import Top from './Top';
+import Words from './components/Words';
+import Top from './components/Top';
 
 function RandomWords({change_page_name}) {
     let [words, set_words] = useState([{}]);
@@ -11,18 +11,18 @@ function RandomWords({change_page_name}) {
             ? 10
             : ids.length;
 
-        for(let i = 0; i < max; i++) {
+        for (let i = 0; i < max; i++) {
             const rand = Math.round(Math.random() * (ids.length - 1));
             indexes.push(...ids.splice(rand, 1));
         }
-        console.log(indexes);
+        
         return indexes;
     }, []);
 
     let random_words = useCallback(() => {
         let words = [];
         const json_string = localStorage.getItem("words");
-        if(json_string) {
+        if (json_string) {
             const json = JSON.parse(json_string);
             const ids = json.map((item, index) => index);
             

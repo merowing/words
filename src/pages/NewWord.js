@@ -1,5 +1,5 @@
-import Top from './Top';
-import '../NewWord.css';
+import Top from './components/Top';
+import '../styles/NewWord.css';
 
 function NewWord({change_page_name, local_storage_add}) {
 
@@ -9,11 +9,11 @@ function NewWord({change_page_name, local_storage_add}) {
         const form_data = new FormData(event.target);
         const data = Object.fromEntries(form_data.entries());
 
-        for(let [item, value] of Object.entries(data)) {
+        for (let [item, value] of Object.entries(data)) {
             if(value === "") event.target[item].classList.add('empty');
         }
         
-        if(data.name !== "" && data.translate !== "") {
+        if (data.name !== "" && data.translate !== "") {
             event.target.reset();
             local_storage_add(data);
         }
