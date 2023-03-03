@@ -28,9 +28,9 @@ function Main() {
             words={local_storage_data()}
             remove_words={local_storage_remove}
         />,
-        // "Random Words": <RandomWords
-        //     set_page_index={set_page_index}
-        // />,
+        "Random words": <RandomWords
+            change_page_name={change_page_name}
+        />,
     };
 
     function change_page_name(page_name) {
