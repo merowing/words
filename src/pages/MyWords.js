@@ -1,7 +1,7 @@
 import {useState} from 'react';
 import Search from './components/Search';
 import Top from './components/Top';
-import '../styles/AllWords.css';
+import '../styles/MyWords.css';
 
 function AllWords({words, change_page_name, remove_words, learn_words}) {
 
