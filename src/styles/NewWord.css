@@ -3,6 +3,7 @@ form {
     flex-direction: row;
     flex-wrap: wrap;
     gap: 30px;
+    padding-bottom: 20px;
 }
 form > * {
     flex: 1 1 auto;
@@ -41,8 +42,9 @@ button.add_button {
     background-color: white;
     color: #2c2c2c;
     border: 0;
-    padding: 6px 0;
-    width: 60px;
+    padding: 6px 0px;
+    width: 80px;
+    height: 40px;
     border-radius: 4px;
     font: normal 14px Verdana;
     cursor: pointer;

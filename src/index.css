@@ -62,10 +62,42 @@ nav ul li button.disable {
 }
 
 
+.top {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 40px;
+}
+.top button {
+  font: normal 14px Verdana;
+  background: none;
+  border: 1px solid #ccc;
+  padding: 6px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  outline: none;
+  height: 40px;
+  min-width: 60px;
+}
+.top button:hover {
+  background-color: gray;
+  color: white;
+  border: 1px solid gray;
+}
+.top .left_buttons {
+  display: flex;
+  gap: 10px;
+}
+
+
 footer {
   text-align: center;
   font: italic 14px Consolas;
-  margin-top: 20px;
+
+  position: fixed;
+  bottom: 10px;
+
 }
 footer > * {
   padding: 4px 0;
