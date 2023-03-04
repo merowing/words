@@ -48,6 +48,27 @@ function WordsPage({words}) {
         set_mouse_active_name(!mouse_active_name);
     }
 
+    useEffect(() => {
+        const body_click = (event) => {
+            if(event.target.tagName === 'DIV' && event.target.className === 'daily_word') {
+                const screen_width = event.target.offsetWidth;
+                const position = event.clientX;
+                
+                if(position > screen_width / 2) {
+                    next_word(1);
+                }
+                if(position < screen_width / 2) {
+                    next_word(-1);
+                }
+            }
+        }
+
+        document.addEventListener("click", body_click);
+        return () => {
+            document.removeEventListener("click", body_click);
+        }
+    });
+
     return (
         <>
             <div className='daily_block'>
