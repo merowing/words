@@ -7,22 +7,6 @@ div.daily_block {
     height: 100%;
     width: 100%;
 }
-div.daily_word {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 14px;
-    text-align: center;
-}
-div.daily_word span.word {
-    font: bold 26px Verdana;
-}
-div.daily_word span.example {
-    font-style: italic;
-    color: gray;
-    height: 60px;
-}
-
 div.daily_block ul {
     list-style: none;
     display: flex;
@@ -42,10 +26,30 @@ div.daily_block ul li button {
     padding: 6px 8px;
     cursor: pointer;
     width: 80px;
+    height: 40px;
     outline: none;
 }
 div.daily_block ul li button:hover {
     background-color: gray;
     color:white;
     border: 1px solid gray;
+}
+
+
+div.daily_word {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    text-align: center;
+    height: 100%;
+    justify-content: center;
+}
+div.daily_word span.word {
+    font: bold 26px Verdana;
+}
+div.daily_word span.sentence {
+    font-style: italic;
+    color: gray;
+    height: 60px;
 }

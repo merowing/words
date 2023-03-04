@@ -1,6 +1,6 @@
-import {Close, Refresh, Remove, Learn, Deselect} from './Buttons.js';
+import {Close, Refresh, Remove, Learn, Deselect, AddNewWord} from './Buttons.js';
 
-function Top({change_page_name, refresh, all_words, page_name}) {
+function Top({change_page_name, refresh, all_words, page_name, form}) {
     let buttons = [];
 
     if (all_words) {
@@ -37,6 +37,12 @@ function Top({change_page_name, refresh, all_words, page_name}) {
                 {
                     (all_words)
                         ? buttons
+                        : <></>
+                }
+
+                {
+                    (form)
+                        ? <AddNewWord form={form} />
                         : <></>
                 }
             </div>

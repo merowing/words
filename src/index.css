@@ -1,3 +1,8 @@
+html,
+body {
+  height: 100%;
+}
+
 body,
 ul {
   padding: 0;
@@ -7,10 +12,12 @@ ul {
 
 #root {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
-  height: 80vh;
+  height: 100%;
   flex-direction: column;
+  padding-top: 170px;
+  box-sizing: border-box;
 }
 .main {
   width: 400px;
@@ -94,10 +101,6 @@ nav ul li button.disable {
 footer {
   text-align: center;
   font: italic 14px Consolas;
-
-  position: fixed;
-  bottom: 10px;
-
 }
 footer > * {
   padding: 4px 0;

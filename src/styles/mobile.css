@@ -1,14 +1,9 @@
 @media (min-width: 360px) and (max-width: 667px) {
-    html,
-    body {
-        height: 100%;
-    }
     #root {
-        height: 100%;
         padding: 20px;
         padding-bottom: 0;
-        box-sizing: border-box;
         z-index: 0;
+        justify-content: center;
     }
 
 
@@ -31,6 +26,8 @@
     footer {
         width: 100%;
         z-index: 1;
+        position: fixed;
+        bottom: 10px;
     }
     footer.hidden {
         display: none;

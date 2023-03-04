@@ -4,6 +4,7 @@ form {
     flex-wrap: wrap;
     gap: 30px;
     padding-bottom: 20px;
+    width: 100%;
 }
 form > * {
     flex: 1 1 auto;
@@ -23,6 +24,8 @@ form > input:focus {
 form > input.empty {
     border: 1px solid red;
 }
+
+
 textarea {
     vertical-align: top;
     height: 100px;
@@ -31,28 +34,4 @@ textarea {
 }
 textarea:focus {
     border: 1px solid gray;
-}
-div.buttons {
-    display: flex;
-    justify-content: center;
-    border: 0;
-    padding: 0;
-}
-button.add_button {
-    background-color: white;
-    color: #2c2c2c;
-    border: 0;
-    padding: 6px 0px;
-    width: 80px;
-    height: 40px;
-    border-radius: 4px;
-    font: normal 14px Verdana;
-    cursor: pointer;
-    outline: none;
-    border: 1px solid #ccc;
-}
-button.add_button:hover {
-    border: 1px solid gray;
-    background-color: gray;
-    color: white;
 }

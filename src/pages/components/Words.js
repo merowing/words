@@ -60,15 +60,21 @@ function WordsPage({words}) {
                             : word.translate
                     }
                     </span>
-                    <span className='example'>{word.sentence}</span>
+                    <span className='sentence'>{word.sentence}</span>
                 </div>
                 <ul>
                     <li>
-                        <button onClick={() => next_word(-1)}>Previous</button>
+                        <button
+                            type='button'
+                            onClick={() => next_word(-1)}
+                        >Previous</button>
                     </li>
                     <li>{`${id + 1} / ${words.length}`}</li>
                     <li>
-                        <button onClick={() => next_word(1)}>Next</button>
+                        <button
+                            type='button'
+                            onClick={() => next_word(1)}
+                        >Next</button>
                     </li>
                 </ul>
             </div>

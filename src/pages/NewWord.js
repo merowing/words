@@ -25,14 +25,11 @@ function NewWord({change_page_name, local_storage_add}) {
 
     return (
         <>
-            <Top change_page_name={change_page_name} />
-            <form onSubmit={(event) => get_form_data(event)} onClick={(event) => clear_form(event)}>
+            <Top change_page_name={change_page_name} form="add_form" />
+            <form id='add_form' onSubmit={(event) => get_form_data(event)} onClick={(event) => clear_form(event)}>
                 <input type='text' name='name' placeholder='Word' />
                 <input type='text' name='translate' placeholder='Translate' />
                 <textarea name='sentence' placeholder='Example sentence'></textarea>
-                <div className='buttons'>
-                    <button className='add_button' type='submit'>Add</button>
-                </div>
             </form>
         </>
     )
