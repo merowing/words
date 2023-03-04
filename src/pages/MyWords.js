@@ -33,8 +33,13 @@ function AllWords({words, change_page_name, remove_words, learn_words}) {
     }
 
     function search_word(event) {
-        const search = event.target.value;
-        const data = words.filter(item => item.name.indexOf(search) !== -1);
+        const search = event.target.value.toLowerCase();
+        let data = words.filter(item => item.name.toLowerCase().indexOf(search) !== -1);
+
+        if(search.length === 1) {
+            data = words.filter(item => item.name[0].toLowerCase() === search[0]);
+        }
+
         set_list(data);
     }
 
