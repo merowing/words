@@ -2,7 +2,7 @@ div.daily_block {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 30px;
+    gap: 100px;
     justify-content: center;
     height: 100%;
     width: 100%;
@@ -11,7 +11,7 @@ div.daily_block ul {
     list-style: none;
     display: flex;
     width: 100%;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
     margin-top: 10px;
 }
@@ -45,6 +45,7 @@ div.daily_word {
     height: 100%;
     justify-content: center;
     width: inherit;
+    user-select: text;
 }
 div.daily_word span.word {
     font: bold 26px Verdana;

@@ -16,10 +16,23 @@ ul {
   align-items: center;
   height: 100%;
   flex-direction: column;
-  padding-top: 170px;
   box-sizing: border-box;
   gap: 100px;
 }
+
+
+.inner {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  user-select: none;
+}
+
+
 .main {
   width: 400px;
   box-sizing: border-box;
@@ -27,6 +40,8 @@ ul {
   flex-direction: column;
   position: relative;
   align-items: center;
+  padding: 20px;
+  margin-top: 170px;
 }
 div.empty {
   height: 100%;
@@ -50,7 +65,7 @@ nav ul {
 nav ul li button {
   border: 1px solid #ccc;
   padding: 12px 6px;
-  background-color: white;
+  background: none;
   width: 140px;
   text-align: center;
   border-radius: 4px;
@@ -59,7 +74,7 @@ nav ul li button {
 nav ul li button:hover {
   background-color: gray;
   border: 1px solid gray;
-  color: white;
+  color: #fff;
 }
 nav ul li button.disable {
   color: #eee;
@@ -89,7 +104,7 @@ nav ul li button.disable {
 }
 .top button:hover {
   background-color: gray;
-  color: white;
+  color: #fff;
   border: 1px solid gray;
 }
 .top .left_buttons {
@@ -107,4 +122,78 @@ footer > * {
 }
 footer.hidden {
   visibility: hidden;
+}
+
+
+.theme {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 16px;
+  font-size: 0;
+  z-index: 1;
+}
+.theme svg {
+  width: 20px;
+  height: 20px;
+  display: none;
+}
+.theme svg.active {
+  display: inline-block;
+}
+.theme svg.sun {
+  fill: #fff;
+}
+
+
+div.inner.night {
+  background-color: dimgray;
+}
+.inner.night footer {
+  color: #fff;
+  background-color: dimgray;
+}
+.night button,
+.night .main div.daily_block ul li button:hover,
+.night div.left_buttons button:hover {
+  color: #fff;
+  border: 1px solid #fff;
+}
+.night input {
+  background: none;
+  color: #fff;
+}
+.night input::placeholder,
+.night textarea::placeholder {
+  color: #aaa;
+}
+.night .words {
+  background: none;
+  color: #fff;
+  background-color: dimgray;
+}
+.night div.words > span.select {
+  background-color: #fff;
+  color: #000;
+}
+.night form#add_form,
+.night form#add_form textarea {
+  background: dimgray;
+}
+.night form#add_form textarea {
+  color: #fff;
+}
+.night .word {
+  color: #fff;
+}
+.night div.daily_word span.sentence {
+  color: #999;
+}
+.night div.daily_block ul {
+  color: #aaa;
+}
+.night button.disable {
+  color: gray;
+  border: 1px solid gray;
+  background: none;
 }

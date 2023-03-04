@@ -53,7 +53,13 @@ function WordsPage({words}) {
             if(
                 event.target.tagName === 'DIV'
                 &&
-                (event.target.className === 'daily_word' || event.target.id === 'root')
+                (
+                    event.target.className === 'daily_word'
+                    || event.target.id === 'root'
+                    || event.target.className === 'inner'
+                    || event.target.className === 'daily_block'
+                    || event.target.className === 'main'
+                )
             ) {
                 const screen_width = event.target.offsetWidth;
                 const position = event.clientX;

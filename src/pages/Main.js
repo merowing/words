@@ -6,7 +6,7 @@ import MyWords from './MyWords';
 import RandomWords from './RandomWords';
 import LearnWords from './LearnWords';
 
-function Main() {
+function Main({show_theme_active}) {
     const [total_words, set_total_words] = useState(total_words_length());
     const [local_storage_size, set_local_storage_size] = useState(`${local_storage_data_size()}%`);
     const [page, set_page] = useState('Menu');
@@ -42,6 +42,11 @@ function Main() {
 
     function change_page_name(page_name) {
         set_page(page_name);
+
+        show_theme_active(false);
+        if (page_name === 'Menu') {
+            show_theme_active(true);
+        }
     }
 
     function total_words_length() {
