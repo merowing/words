@@ -31,7 +31,10 @@ function Menu({change_page_name, words_len}) {
                                         type="button"
                                         onClick={
                                             (class_string === '')
-                                                ? () => change_page_name(name)
+                                                ? (event) => {
+                                                    event.stopPropagation();
+                                                    change_page_name(name);
+                                                }
                                                 : null
                                         }
                                         className={class_string}

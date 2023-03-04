@@ -50,7 +50,11 @@ function WordsPage({words}) {
 
     useEffect(() => {
         const body_click = (event) => {
-            if(event.target.tagName === 'DIV' && event.target.className === 'daily_word') {
+            if(
+                event.target.tagName === 'DIV'
+                &&
+                (event.target.className === 'daily_word' || event.target.id === 'root')
+            ) {
                 const screen_width = event.target.offsetWidth;
                 const position = event.clientX;
                 
@@ -74,7 +78,12 @@ function WordsPage({words}) {
             <div className='daily_block'>
                 <div className='daily_word'>
                     <span className='word'
-                        onClick={change_name}
+                        onClick={
+                            (event) => {
+                                event.stopPropagation();
+                                change_name();
+                            }
+                        }
                     >{
                         (mouse_active_name)
                             ? word.name
@@ -87,14 +96,24 @@ function WordsPage({words}) {
                     <li>
                         <button
                             type='button'
-                            onClick={() => next_word(-1)}
+                            onClick={
+                                (event) => {
+                                    event.stopPropagation();
+                                    next_word(-1);
+                                }
+                            }
                         >Previous</button>
                     </li>
                     <li>{`${id + 1} / ${words.length}`}</li>
                     <li>
                         <button
                             type='button'
-                            onClick={() => next_word(1)}
+                            onClick={
+                                (event) => {
+                                    event.stopPropagation();
+                                    next_word(1);
+                                }
+                            }
                         >Next</button>
                     </li>
                 </ul>

@@ -42,7 +42,12 @@ function RandomWords({change_page_name}) {
     return (
         <>
             <Top
-                refresh={refresh}
+                refresh={
+                    (event) => {
+                        event.stopPropagation();
+                        refresh();
+                    }
+                }
                 change_page_name={change_page_name}
             />
             {
