@@ -1,4 +1,4 @@
-@media (min-width: 360px) and (max-width: 667px) {
+@media (min-width: 280px) and (max-width: 667px) {
     #root {
         padding-bottom: 0;
         z-index: 0;
@@ -15,8 +15,7 @@
     .main {
         width: 100%;
         height: 100%;
-        margin-top: 0;
-        padding-bottom: 0;
+        padding: 0;
     }
     .main nav {
         flex: none;
@@ -42,6 +41,7 @@
 
     div.top {
         margin-bottom: 20px;
+        align-items: flex-start;
     }
 
 
@@ -87,7 +87,9 @@
         order: 1;
     }
 
-
+    div.left_buttons {
+        flex-wrap: wrap;
+    }
     div.left_buttons button:hover {
         background: none;
         color: #000;
