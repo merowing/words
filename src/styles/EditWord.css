@@ -1,0 +1,15 @@
+div.edit_status {
+    align-self: center;
+    font-size: 0;
+}
+div.edit_status svg {
+    fill: green;
+    width: 26px;
+    height: 26px;
+    display: inline;
+    opacity: 1;
+}
+div.edit_status svg.hide {
+    transition: opacity 1s ease-in-out;
+    opacity: 0;
+}

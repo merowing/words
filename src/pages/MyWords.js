@@ -3,11 +3,11 @@ import Search from './components/Search';
 import Top from './components/Top';
 import '../styles/MyWords.css';
 
-function AllWords({words, change_page_name, remove_words, learn_words}) {
+function MyWords({words, change_page_name, remove_words, learn_words, edit_button}) {
 
     let [list, set_list] = useState(words);
     let [ids, set_ids] = useState([]);
-    let [show_control, set_show_control] = useState(false);
+    let [show_control_buttons, set_show_control_buttons] = useState(false);
     let [chose_words, set_chose_words] = useState([]);
 
     function select_word(event) {
@@ -17,7 +17,9 @@ function AllWords({words, change_page_name, remove_words, learn_words}) {
             if (!event.target.classList.contains('select')) {
                 event.target.classList.add('select');
                 set_ids([...ids, id]);
-                set_show_control(true);
+                if(!show_control_buttons) {
+                    set_show_control_buttons(true);
+                }
                 set_chose_words([...ids, id]);
             } else {
                 event.target.classList.remove('select');
@@ -26,7 +28,7 @@ function AllWords({words, change_page_name, remove_words, learn_words}) {
                 set_chose_words(temp_ids);
 
                 if (!temp_ids.length) {
-                    set_show_control(false);
+                    set_show_control_buttons(false);
                 }
             }
         }
@@ -43,31 +45,44 @@ function AllWords({words, change_page_name, remove_words, learn_words}) {
         set_list(data);
     }
 
-    function remove() {
+    function remove_button() {
         if (ids.length) {
             const data = words.filter(word => !ids.includes(word.id));
             set_list(data);
             set_ids([]);
-            set_show_control(false);
+            set_show_control_buttons(false);
 
             remove_words(ids);
         }
     }
 
-    function clean() {
+    function deselect_button() {
         set_ids([]);
-        set_show_control(false);
+        set_show_control_buttons(false);
+    }
+
+    function edit() {
+        edit_button(ids);
     }
 
     return (
         <>
             <Top
                 change_page_name={change_page_name}
-                all_words={{show_control, remove, clean, learn_words, chose_words}}
+                my_words={
+                    {
+                        show_control_buttons,
+                        learn_words,
+                        chose_words,
+                        remove_button,
+                        deselect_button,
+                        edit,
+                    }
+                }
             />
 
             <Search search_word={search_word}/>
-            <div className='words' onClick={(event) => select_word(event)}>
+            <div className='words' onClick={select_word}>
                 {
                     list.map((word, i) => {
                         let class_name = '';
@@ -91,4 +106,4 @@ function AllWords({words, change_page_name, remove_words, learn_words}) {
     )
 }
 
-export default AllWords;
+export default MyWords;

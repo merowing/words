@@ -31,7 +31,7 @@ function RandomWords({change_page_name}) {
         return words;
     }, [random]);
 
-    let refresh = useCallback(() => {
+    let refresh_button = useCallback(() => {
         set_words(random_words());
     }, [random_words]);
 
@@ -42,10 +42,10 @@ function RandomWords({change_page_name}) {
     return (
         <>
             <Top
-                refresh={
+                refresh_button={
                     (event) => {
                         event.stopPropagation();
-                        refresh();
+                        refresh_button();
                     }
                 }
                 change_page_name={change_page_name}

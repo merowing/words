@@ -1,11 +1,11 @@
-import {Close, Refresh, Remove, Learn, Deselect, AddNewWord} from './Buttons.js';
+import {Close, Refresh, Remove, Learn, Deselect, AddWord, Edit} from './Buttons.js';
 
-function Top({change_page_name, refresh, all_words, page_name, form}) {
+function Top({change_page_name, refresh_button, my_words, page_name, form, form_name_button, edit_status}) {
     let buttons = [];
 
-    if (all_words) {
-        let {show_control, remove, clean, learn_words, chose_words} = all_words;
-        if (show_control) {
+    if (my_words) {
+        let {show_control_buttons, learn_words, chose_words, remove_button, deselect_button, edit,} = my_words;
+        if (show_control_buttons) {
             buttons = [
                 <Learn
                     key="learn-button"
@@ -15,12 +15,17 @@ function Top({change_page_name, refresh, all_words, page_name, form}) {
                 />,
                 <Remove
                     key="remove-button"
-                    remove={remove}
+                    remove={remove_button}
                 />,
-                <Deselect
-                    key="clean-button"
-                    clean={clean}
-                />,
+                (chose_words.length !== 1)
+                    ? <Deselect
+                        key="clean-button"
+                        clean={deselect_button}
+                    />
+                    : <Edit
+                        key="edit-button"
+                        edit={edit}
+                    />,
             ]
         }
     }
@@ -29,20 +34,30 @@ function Top({change_page_name, refresh, all_words, page_name, form}) {
         <div className="top">
             <div className="left_buttons">
                 {
-                    (refresh)
-                        ? <Refresh refresh={refresh} />
+                    (refresh_button)
+                        ? <Refresh refresh={refresh_button} />
                         : <></>
                 }
 
                 {
-                    (all_words)
+                    (my_words)
                         ? buttons
                         : <></>
                 }
 
                 {
                     (form)
-                        ? <AddNewWord form={form} />
+                        ? <>
+                            <AddWord
+                                form={form}
+                                form_name_button={form_name_button}
+                            />
+                            <div className='edit_status'>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" className={(!edit_status) ? 'hide' : ''}>
+                                    <path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z"/>
+                                </svg>
+                            </div>
+                        </>
                         : <></>
                 }
             </div>

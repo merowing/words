@@ -50,11 +50,20 @@ export function Remove({remove}) {
     )
 }
 
-export function AddNewWord({form}) {
+export function AddWord({form, form_name_button}) {
     return (
         <button
             form={form}
             type='submit'
-        >Add</button>
+        >{form_name_button}</button>
+    )
+}
+
+export function Edit({edit}) {
+    return (
+        <button
+            onClick={edit}
+            type='edit'
+        >Edit</button>
     )
 }

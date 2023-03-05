@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import NewWord from './NewWord';
+import EditWord from './EditWord';
 import Menu from './Menu';
 import DailyWords from './DailyWords';
 import MyWords from './MyWords';
@@ -11,6 +12,7 @@ function Main({show_theme_active}) {
     const [local_storage_size, set_local_storage_size] = useState(`${local_storage_data_size()}%`);
     const [page, set_page] = useState('Menu');
     const [learn, set_learn] = useState([]);
+    const [edit_word, set_edit_word] = useState([]);
 
     const pages = {
         "Menu": <Menu
@@ -25,11 +27,17 @@ function Main({show_theme_active}) {
             change_page_name={change_page_name}
             local_storage_add={local_storage_add}
         />,
+        "Edit word": <EditWord
+            change_page_name={change_page_name}
+            local_storage_data={local_storage_data()}
+            edit_word={edit_word}
+        />,
         "My words": <MyWords
             change_page_name={change_page_name}
             words={local_storage_data()}
             remove_words={local_storage_remove}
             learn_words={learn_words}
+            edit_button={edit_button}
         />,
         "Random words": <RandomWords
             change_page_name={change_page_name}
@@ -58,6 +66,18 @@ function Main({show_theme_active}) {
         }
 
         return 0;
+    }
+
+    function edit_button(word_index) {
+
+        const words = local_storage_data();
+        const word = words.filter((item, i) => parseInt(word_index[0]) === parseInt(item.id));
+        const index = words.findIndex(item => parseInt(word_index[0]) === parseInt(item.id));
+
+        if(word.length) {
+            set_edit_word([index, word[0]]);
+        }
+        change_page_name("Edit word");
     }
 
     function learn_words(learn_words) {
