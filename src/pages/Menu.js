@@ -1,4 +1,4 @@
-const names = ['Daily words', 'Learn words', 'New word', 'My words'];
+const names = ['Learn words', 'New word', 'My words', 'Daily words'];
 
 function daily_status(words_len) {
     const json_string = localStorage.getItem("daily");
@@ -6,7 +6,7 @@ function daily_status(words_len) {
         const {active} = JSON.parse(json_string);
 
         return (active && words_len)
-            ? ''
+            ? 'daily'
             : 'disable';
     }
 
@@ -20,7 +20,7 @@ function Menu({change_page_name, words_len}) {
                 <ul>
                     {
                         names.map((name, i) => {
-                            let class_string = (i === 0)
+                            let class_string = (name === 'Daily words')
                                 ? daily_status(words_len)
                                 : '';
 
@@ -30,7 +30,7 @@ function Menu({change_page_name, words_len}) {
                                         key={`button-${name}-${i}`}
                                         type="button"
                                         onClick={
-                                            (class_string === '')
+                                            (class_string !== 'disable')
                                                 ? (event) => {
                                                     event.stopPropagation();
                                                     change_page_name(name);

@@ -13,10 +13,6 @@ function Top({change_page_name, refresh_button, my_words, page_name, form, form_
                     learn_words={learn_words}
                     chose_words={chose_words}
                 />,
-                <Remove
-                    key="remove-button"
-                    remove={remove_button}
-                />,
                 (chose_words.length !== 1)
                     ? <Deselect
                         key="clean-button"
@@ -26,6 +22,10 @@ function Top({change_page_name, refresh_button, my_words, page_name, form, form_
                         key="edit-button"
                         edit={edit}
                     />,
+                <Remove
+                    key="remove-button"
+                    remove={remove_button}
+                />,
             ]
         }
     }

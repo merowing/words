@@ -68,11 +68,6 @@
     .main div.search > input {
         padding: 8px 0;
     }
-    .main div.words_wrapper {
-        height: calc(100% - 160px);
-        background-color: #fff;
-        overflow-y: auto;
-    }
 
 
     .main div.daily_block ul {

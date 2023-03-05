@@ -131,24 +131,24 @@ function Main({show_theme_active, change_theme, show_theme, theme}) {
 
     function local_storage_data_size() {
         const max_size = 5 * 1024 * 1024;
-        let daily_len = 0;
         let value_len = 0;
-        let ls_total = 0;
+        let another_len = 0;
+        let words_len = 0;
 
         for (let value in localStorage) {
             if (!Object.hasOwn(localStorage, value)) {
                 continue;
             }
 
-            if (value === "daily") {
-                daily_len = (localStorage[value].length + value.length) * 2;
-            } else {
+            if (value !== "words") {
                 value_len = (localStorage[value].length + value.length) * 2;
-                ls_total += value_len;
+                another_len += value_len;
+            } else {
+                words_len = (localStorage[value].length + value.length) * 2;
             }
         };
         
-        const percentage = (1 - ls_total / (max_size - daily_len)) * 100;
+        const percentage = (1 - words_len / (max_size - another_len)) * 100;
         return Math.floor(percentage * 100) / 100;
     }
 
@@ -194,7 +194,7 @@ function Main({show_theme_active, change_theme, show_theme, theme}) {
             </div>
             <footer
                 className={
-                    (page === 'Daily words' || page === 'Random words' || page === 'Learn words')
+                    (page === 'Daily words' || page === 'Learn words' || page === 'Learn')
                         ? 'hidden'
                         : ''
                 }
