@@ -82,13 +82,18 @@ function App() {
   function change_theme() {
       set_theme(!theme);
       set_theme_night(!theme_night);
+
+      document.body.classList.remove('night');
+      if (!theme_night) {
+        document.body.classList.add('night');
+      }
   }
   function show_theme_active(val) {
     set_show_theme(val);
   }
 
   return (
-    <div className={(theme_night) ? 'inner night' : 'inner'}>
+    <div className='inner'>
       <Main 
         show_theme_active={show_theme_active}
         change_theme={change_theme}

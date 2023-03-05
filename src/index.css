@@ -187,13 +187,9 @@ button.refresh_button svg {
   border: 0;
 }
 
-
-div.inner.night {
+body.night {
   background-color: #696969;
-}
-.inner.night footer {
   color: #fff;
-  background-color: #696969;
 }
 .night button,
 .night .main div.daily_block ul li button:hover,
