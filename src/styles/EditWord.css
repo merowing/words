@@ -9,6 +9,9 @@ div.edit_status svg {
     display: inline;
     opacity: 1;
 }
+.night div.edit_status svg {
+    fill: white;
+}
 div.edit_status svg.hide {
     transition: opacity 1s ease-in-out;
     opacity: 0;

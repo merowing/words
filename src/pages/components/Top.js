@@ -1,4 +1,4 @@
-import {Close, Refresh, Remove, Learn, Deselect, AddWord, Edit} from './Buttons.js';
+import {Back, Refresh, Remove, Learn, Deselect, AddWord, Edit} from './Buttons.js';
 
 function Top({change_page_name, refresh_button, my_words, page_name, form, form_name_button, edit_status}) {
     let buttons = [];
@@ -61,7 +61,7 @@ function Top({change_page_name, refresh_button, my_words, page_name, form, form_
                         : <></>
                 }
             </div>
-            <Close 
+            <Back
                 change_page_name={change_page_name}
                 page_name={page_name}
             />

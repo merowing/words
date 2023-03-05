@@ -146,6 +146,35 @@ footer.hidden {
 }
 
 
+button.refresh_button,
+button.edit_button,
+button.remove_button {
+  width: 40px;
+  height: 40px;
+  min-width: auto;
+  font-size: 0;
+  padding: 0;
+}
+button.refresh_button {
+  border: 0;
+}
+button svg {
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+}
+button.refresh_button svg {
+  width: 26px;
+  height: 26px;
+  display: inline-block;
+  transform: rotate(45deg);
+}
+.night button.refresh_button,
+.night div.left_buttons button.refresh_button:hover {
+  border: 0;
+}
+
+
 div.inner.night {
   background-color: dimgray;
 }
