@@ -43,6 +43,7 @@ ul {
   position: relative;
   align-items: center;
   margin-top: 170px;
+  height: 100%;
 }
 div.empty {
   height: 100%;
