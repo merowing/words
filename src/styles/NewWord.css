@@ -19,10 +19,10 @@ form > input {
     width: 60px;
 }
 form > input:focus {
-    border: 1px solid gray;
+    border: 1px solid #808080;
 }
 form > input.empty {
-    border: 1px solid red;
+    border: 1px solid #f00;
 }
 
 
@@ -33,5 +33,5 @@ textarea {
     width: 100%;
 }
 textarea:focus {
-    border: 1px solid gray;
+    border: 1px solid #808080;
 }

@@ -8,7 +8,6 @@
 
 
     .inner {
-        padding-top: 0;
         width: 100%;
     }
 
@@ -34,9 +33,7 @@
         width: 100%;
         z-index: 1;
         position: fixed;
-        bottom: 10px;
-        bottom: 0;
-        padding-bottom: 10px;
+        bottom: 20px;
     }
     footer.hidden {
         display: none;
@@ -71,19 +68,23 @@
     .main div.search > input {
         padding: 8px 0;
     }
+    .main div.words_wrapper {
+        height: calc(100% - 160px);
+        background-color: #fff;
+        overflow-y: auto;
+    }
 
 
     .main div.daily_block ul {
         justify-content: space-between;
         order: 3;
-        padding-bottom: 20px;
     }
     .main div.daily_block ul li button {
         height: 40px;
     }
     .main div.daily_block ul li button:hover {
         background: none;
-        color: black;
+        color: #000;
     }
     div.daily_word {
         height: 100%;

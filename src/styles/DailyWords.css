@@ -30,9 +30,9 @@ div.daily_block ul li button {
     outline: none;
 }
 div.daily_block ul li button:hover {
-    background-color: gray;
-    color:white;
-    border: 1px solid gray;
+    background-color: #808080;
+    color: #fff;
+    border: 1px solid #808080;
 }
 
 
@@ -52,6 +52,6 @@ div.daily_word span.word {
 }
 div.daily_word span.sentence {
     font-style: italic;
-    color: gray;
+    color: #808080;
     height: 60px;
 }

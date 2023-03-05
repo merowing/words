@@ -30,6 +30,8 @@ ul {
   width: 100%;
   align-items: center;
   user-select: none;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
 
@@ -40,7 +42,6 @@ ul {
   flex-direction: column;
   position: relative;
   align-items: center;
-  padding: 20px;
   margin-top: 170px;
 }
 div.empty {
@@ -72,15 +73,16 @@ nav ul li button {
   cursor: pointer;
 }
 nav ul li button:hover {
-  background-color: gray;
-  border: 1px solid gray;
+  background-color: #808080;
+  border: 1px solid #808080;
   color: #fff;
 }
 nav ul li button.disable {
   color: #eee;
-  border: 1px solid lightgray;
+  border: 1px solid #d3d3d3;
   background-color: #ccc;
   cursor: not-allowed;
+  display: none;
 }
 
 
@@ -103,9 +105,9 @@ nav ul li button.disable {
   min-width: 60px;
 }
 .top button:hover {
-  background-color: gray;
+  background-color: #808080;
   color: #fff;
-  border: 1px solid gray;
+  border: 1px solid #808080;
 }
 .top .left_buttons {
   display: flex;
@@ -129,9 +131,14 @@ footer.hidden {
   position: absolute;
   top: 0;
   right: 0;
-  padding: 16px;
-  font-size: 0;
-  z-index: 1;
+  display: flex;
+  width: 40px;
+  height: 40px;
+  justify-content: center;
+  align-items: center;
+}
+.theme:hover {
+  cursor: pointer;
 }
 .theme svg {
   width: 20px;
@@ -176,17 +183,16 @@ button.refresh_button svg {
 
 
 div.inner.night {
-  background-color: dimgray;
+  background-color: #696969;
 }
 .inner.night footer {
   color: #fff;
-  background-color: dimgray;
+  background-color: #696969;
 }
 .night button,
 .night .main div.daily_block ul li button:hover,
 .night div.left_buttons button:hover {
   color: #fff;
-  border: 1px solid #fff;
 }
 .night input {
   background: none;
@@ -199,7 +205,7 @@ div.inner.night {
 .night .words {
   background: none;
   color: #fff;
-  background-color: dimgray;
+  background-color: #696969;
 }
 .night div.words > span.select {
   background-color: #fff;
@@ -207,7 +213,7 @@ div.inner.night {
 }
 .night form#add_form,
 .night form#add_form textarea {
-  background: dimgray;
+  background: #696969;
 }
 .night form#add_form textarea {
   color: #fff;
@@ -222,7 +228,7 @@ div.inner.night {
   color: #aaa;
 }
 .night button.disable {
-  color: gray;
-  border: 1px solid gray;
+  color: #808080;
+  border: 1px solid #808080;
   background: none;
 }

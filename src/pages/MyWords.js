@@ -82,25 +82,27 @@ function MyWords({words, change_page_name, remove_words, learn_words, edit_butto
             />
 
             <Search search_word={search_word}/>
-            <div className='words' onClick={select_word}>
-                {
-                    list.map((word, i) => {
-                        let class_name = '';
-                        if (word.id) {
-                            class_name = (ids.includes(word.id))
-                                ? 'select'
-                                : '';
-                        }
+            <div className='words_wrapper'>
+                <div className='words' onClick={select_word}>
+                    {
+                        list.map((word, i) => {
+                            let class_name = '';
+                            if (word.id) {
+                                class_name = (ids.includes(word.id))
+                                    ? 'select'
+                                    : '';
+                            }
 
-                        return (
-                            <span
-                                key={`${word.name}-${i}`}
-                                id={word.id}
-                                className={class_name}
-                            >{word.name}</span>
-                        );
-                    })
-                }
+                            return (
+                                <span
+                                    key={`${word.name}-${i}`}
+                                    id={word.id}
+                                    className={class_name}
+                                >{word.name}</span>
+                            );
+                        })
+                    }
+                </div>
             </div>
         </>
     )

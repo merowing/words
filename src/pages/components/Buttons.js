@@ -24,7 +24,7 @@ export function Learn({change_page_name, learn_words, chose_words}) {
             onClick={
                 () => {
                     learn_words(chose_words);
-                    change_page_name("Learn words");
+                    change_page_name("Learn");
                 }
             }
             type='button'

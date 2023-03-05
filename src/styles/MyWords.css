@@ -3,7 +3,6 @@ div.words {
     flex-direction: row;
     flex-wrap: wrap;
     gap: 8px;
-    overflow-y: auto;
     padding-bottom: 20px;
     width: 100%;
     background-color: #fff;
@@ -16,9 +15,9 @@ div.words > span {
     user-select: none;
 }
 div.words > span.select {
-    background-color: gray;
-    color: white;
-    border: 1px solid gray;
+    background-color: #808080;
+    color: #fff;
+    border: 1px solid #808080;
 }
 
 

@@ -3,14 +3,14 @@ div.edit_status {
     font-size: 0;
 }
 div.edit_status svg {
-    fill: green;
+    fill: #008000;
     width: 26px;
     height: 26px;
     display: inline;
     opacity: 1;
 }
 .night div.edit_status svg {
-    fill: white;
+    fill: #fff;
 }
 div.edit_status svg.hide {
     transition: opacity 1s ease-in-out;
