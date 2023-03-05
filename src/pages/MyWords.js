@@ -47,7 +47,7 @@ function MyWords({words, change_page_name, remove_words, learn_words, edit_butto
 
     function remove_button() {
         if (ids.length) {
-            const data = words.filter(word => !ids.includes(word.id));
+            const data = list.filter(word => !ids.includes(word.id));
             set_list(data);
             set_ids([]);
             set_show_control_buttons(false);
