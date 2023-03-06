@@ -35,3 +35,18 @@ textarea {
 textarea:focus {
     border: 1px solid #808080;
 }
+
+div.unavailable_word {
+    height: 40px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ff0000;
+}
+.night div.unavailable_word {
+    color: #ffa500;
+}
+.night form > input.empty {
+    border: 1px solid #ffa500;
+}

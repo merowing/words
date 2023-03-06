@@ -23,7 +23,7 @@ function NewWord({change_page_name, local_storage_data, edit_word}) {
     }
 
     useEffect(() => {
-        if(edit_status) {
+        if (edit_status) {
             const ease = setTimeout(() => {
                 set_edit_status(false);
             }, 500);

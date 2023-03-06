@@ -80,7 +80,7 @@ function Main({show_theme_active, change_theme, show_theme, theme}) {
         const word = words.filter((item, i) => parseInt(word_index[0]) === parseInt(item.id));
         const index = words.findIndex(item => parseInt(word_index[0]) === parseInt(item.id));
 
-        if(word.length) {
+        if (word.length) {
             set_edit_word([index, word[0]]);
         }
         change_page_name("Edit word");
@@ -102,11 +102,11 @@ function Main({show_theme_active, change_theme, show_theme, theme}) {
 
     function listen_button() {
         const synth = window.speechSynthesis;
-        if(synth.speaking) {
+        if (synth.speaking) {
             synth.cancel();
         }
 
-        if(listen_word) {
+        if (listen_word) {
             const msg = new SpeechSynthesisUtterance(listen_word.name);
             synth.speak(msg);
         }
@@ -117,6 +117,13 @@ function Main({show_theme_active, change_theme, show_theme, theme}) {
         const words = (json)
             ? JSON.parse(json)
             : [];
+
+        const check_word = words.some((word) => {
+            return word.name.toLowerCase() === data.name.toLowerCase()
+        });
+        if (check_word) {
+            return false;
+        }
 
         let id = (words.length)
             ? parseInt(words.at(-1).id) + 1
@@ -129,6 +136,8 @@ function Main({show_theme_active, change_theme, show_theme, theme}) {
         
         local_storage_update();
         set_total_words(words.length);
+
+        return true;
     }
 
     function local_storage_update() {

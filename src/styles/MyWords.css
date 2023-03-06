@@ -31,6 +31,7 @@ div.search {
     margin-bottom: 16px;
     border-bottom: 1px solid #ccc;
     width: 100%;
+    margin-top: 20px;
 }
 div.search > input {
     padding: 6px 8px;

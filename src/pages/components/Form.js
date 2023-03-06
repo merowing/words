@@ -1,17 +1,13 @@
 import { useEffect, useState } from "react";
 
-function clear_form(event) {
-    event.target.classList.remove('empty');
-}
-
-function Form({get_form_data, edit_word}) {
+function Form({get_form_data, edit_word, set_unavailable_word}) {
 
     let [form_name, set_form_name] = useState('');
     let [form_translate, set_form_translate] = useState('');
     let [form_sentence, set_form_sentence] = useState('');
 
     useEffect(() => {
-        if(edit_word && Object.keys(edit_word).length) {
+        if (edit_word && Object.keys(edit_word).length) {
             const {name, translate, sentence} = edit_word;
             
             set_form_name(name);
@@ -30,6 +26,11 @@ function Form({get_form_data, edit_word}) {
 
     function change_sentence(event) {
         set_form_sentence(event.target.value);
+    }
+
+    function clear_form(event) {
+        event.target.classList.remove('empty');
+        set_unavailable_word('');
     }
 
     return (

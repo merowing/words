@@ -54,7 +54,7 @@ function WordsPage({words, set_listen_word}) {
 
     useEffect(() => {
         const body_click = (event) => {
-            if(
+            if (
                 event.target.tagName === 'DIV'
                 &&
                 (
@@ -68,10 +68,10 @@ function WordsPage({words, set_listen_word}) {
                 const screen_width = event.target.offsetWidth;
                 const position = event.clientX;
                 
-                if(position > screen_width / 2) {
+                if (position > screen_width / 2) {
                     next_word(1);
                 }
-                if(position < screen_width / 2) {
+                if (position < screen_width / 2) {
                     next_word(-1);
                 }
             }
