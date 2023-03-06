@@ -18,6 +18,15 @@ export function Deselect({clean}) {
     )
 }
 
+export function SelectAll({select_all}) {
+    return (
+        <button
+            onClick={select_all}
+            type='button'
+        >Select All</button>
+    )
+}
+
 export function Learn({change_page_name, learn_words, chose_words}) {
     return (
         <button

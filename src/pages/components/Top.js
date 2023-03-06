@@ -1,7 +1,12 @@
-import {Back, Refresh, Remove, Learn, Deselect, AddWord, Edit, Listen} from './Buttons.js';
+import {Back, Refresh, Remove, Learn, Deselect, AddWord, Edit, Listen, SelectAll} from './Buttons.js';
 
-function Top({change_page_name, refresh_button, listen_button, my_words, page_name, form, form_name_button, edit_status}) {
-    let buttons = [];
+function Top({change_page_name, refresh_button, select_all_button, listen_button, my_words, page_name, form, form_name_button, edit_status}) {
+    let buttons = [
+        <SelectAll
+            key='select-all-button'
+            select_all={select_all_button}
+        />
+    ];
 
     if (my_words) {
         let {show_control_buttons, learn_words, chose_words, remove_button, deselect_button, edit,} = my_words;

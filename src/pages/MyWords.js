@@ -17,7 +17,7 @@ function MyWords({words, change_page_name, remove_words, learn_words, edit_butto
             if (!event.target.classList.contains('select')) {
                 event.target.classList.add('select');
                 set_ids([...ids, id]);
-                if(!show_control_buttons) {
+                if (!show_control_buttons) {
                     set_show_control_buttons(true);
                 }
                 set_chose_words([...ids, id]);
@@ -65,10 +65,19 @@ function MyWords({words, change_page_name, remove_words, learn_words, edit_butto
         edit_button(ids);
     }
 
+    function select_all_button() {
+        const ids = list.map(word => word.id);
+
+        set_ids(ids);
+        set_chose_words(ids);
+        set_show_control_buttons(true);
+    }
+
     return (
         <>
             <Top
                 change_page_name={change_page_name}
+                select_all_button={select_all_button}
                 my_words={
                     {
                         show_control_buttons,
