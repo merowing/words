@@ -37,12 +37,13 @@ textarea:focus {
 }
 
 div.unavailable_word {
-    height: 40px;
+    min-height: 40px;
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     color: #ff0000;
+    box-sizing: border-box;
 }
 .night div.unavailable_word {
     color: #ffa500;

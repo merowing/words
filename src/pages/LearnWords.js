@@ -1,39 +1,39 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import Words from './components/Words';
 import Top from './components/Top';
 
-function LearnWords({change_page_name, listen_button, set_listen_word}) {
-    let [words, set_words] = useState([{}]);
+function random(ids) {
+    const indexes = [];
+    const max = (ids.length > 10)
+        ? 10
+        : ids.length;
 
-    let random = useCallback((ids) => {
-        const indexes = [];
-        const max = (ids.length > 10)
-            ? 10
-            : ids.length;
+    for (let i = 0; i < max; i++) {
+        const rand = Math.round(Math.random() * (ids.length - 1));
+        indexes.push(...ids.splice(rand, 1));
+    }
+    
+    return indexes;
+}
 
-        for (let i = 0; i < max; i++) {
-            const rand = Math.round(Math.random() * (ids.length - 1));
-            indexes.push(...ids.splice(rand, 1));
-        }
+function random_words() {
+    let words = [];
+    const json_string = localStorage.getItem("words");
+    if (json_string) {
+        const json = JSON.parse(json_string);
+        const ids = json.map((item, index) => index);
         
-        return indexes;
-    }, []);
+        words = random(ids).map(num => json[num]);
+    }
+    return words;
+}
 
-    let random_words = useCallback(() => {
-        let words = [];
-        const json_string = localStorage.getItem("words");
-        if (json_string) {
-            const json = JSON.parse(json_string);
-            const ids = json.map((item, index) => index);
-            
-            words = random(ids).map(num => json[num]);
-        }
-        return words;
-    }, [random]);
+function LearnWords({change_page_name, listen_button, set_listen_word}) {
+    let [words, set_words] = useState([]);
 
-    let refresh_button = useCallback(() => {
+    function refresh_button() {
         set_words(random_words());
-    }, [random_words]);
+    }
 
     useEffect(() => {
         set_words(random_words());

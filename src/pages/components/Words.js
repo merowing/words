@@ -22,7 +22,7 @@ function WordsPage({words, set_listen_word}) {
 
         set_listen_word(words[ind]);
 
-    });
+    }, [id, words, set_listen_word]);
 
     const arrows_press = useCallback((event) => {
         const key = event.key;
@@ -39,8 +39,9 @@ function WordsPage({words, set_listen_word}) {
     }, [next_word]);
 
     useEffect(() => {
+        set_current_word({id: 0, word: words[0]});
         set_listen_word(words[0]);
-    }, []);
+    }, [words, set_listen_word]);
 
     useEffect(() => {
         document.addEventListener('keydown', arrows_press);
