@@ -1,10 +1,11 @@
 import { useCallback, useEffect, useState } from "react";
 
-function WordsPage({words}) {
+function WordsPage({words, set_listen_word}) {
     let [{id, word}, set_current_word] = useState({id: 0, word: words[0]});
 
     const next_word = useCallback((ind) => {
         ind = id + ind;
+
         if (ind < 0) {
             ind = words.length - 1;
         }
@@ -18,7 +19,10 @@ function WordsPage({words}) {
                 word: words[ind],
             }
         );
-    }, [id, words]);
+
+        set_listen_word(words[ind]);
+
+    });
 
     const arrows_press = useCallback((event) => {
         const key = event.key;
@@ -35,8 +39,8 @@ function WordsPage({words}) {
     }, [next_word]);
 
     useEffect(() => {
-        set_current_word({id: 0, word: words[0]});
-    }, [words]);
+        set_listen_word(words[0]);
+    }, []);
 
     useEffect(() => {
         document.addEventListener('keydown', arrows_press);
@@ -44,7 +48,7 @@ function WordsPage({words}) {
     }, [arrows_press]);
 
     let [mouse_active_name, set_mouse_active_name] = useState(true);
-    function change_name() {
+    function toggle_translate() {
         set_mouse_active_name(!mouse_active_name);
     }
 
@@ -87,7 +91,7 @@ function WordsPage({words}) {
                         onClick={
                             (event) => {
                                 event.stopPropagation();
-                                change_name();
+                                toggle_translate();
                             }
                         }
                     >{

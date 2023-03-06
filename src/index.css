@@ -95,7 +95,7 @@ nav ul li button.daily {
 .top {
   display: flex;
   width: 100%;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
   margin-bottom: 40px;
 }
@@ -118,6 +118,9 @@ nav ul li button.daily {
 .top .left_buttons {
   display: flex;
   gap: 10px;
+}
+.top .left_buttons.learn_words {
+  flex-direction: column;
 }
 
 
@@ -160,6 +163,7 @@ footer.hidden {
 
 
 button.refresh_button,
+button.listen_button,
 button.edit_button,
 button.remove_button {
   width: 40px;
@@ -167,9 +171,6 @@ button.remove_button {
   min-width: auto;
   font-size: 0;
   padding: 0;
-}
-button.refresh_button {
-  border: 0;
 }
 button svg {
   width: 20px;
@@ -182,8 +183,20 @@ button.refresh_button svg {
   display: inline-block;
   transform: rotate(45deg);
 }
+button.listen_button svg {
+  width: 32px;
+  height: 32px;
+  display: inline-block;
+  padding-left: 3px;
+}
+button.refresh_button,
+button.listen_button,
+button.refresh_button:hover,
+button.listen_button:hover,
 .night button.refresh_button,
-.night div.left_buttons button.refresh_button:hover {
+.night button.listen_button,
+.night div.left_buttons button.refresh_button:hover,
+.night div.left_buttons button.listen_button:hover {
   border: 0;
 }
 

@@ -38,7 +38,7 @@ function daily() {
       const words = local_storage_words();
 
       const date_string = new Date(data.time).toDateString();
-      const twenty_four_hours = 86400000;
+      const twenty_four_hours = 54000000;//86400000;
       const time_passed = Date.now() - (new Date(date_string));
 
       if(twenty_four_hours - time_passed <= 0 && !data.active) {

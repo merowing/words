@@ -4,8 +4,8 @@ import EditWord from './EditWord';
 import Menu from './Menu';
 import DailyWords from './DailyWords';
 import MyWords from './MyWords';
-import RandomWords from './RandomWords';
 import LearnWords from './LearnWords';
+import Learn from './Learn';
 
 function Main({show_theme_active, change_theme, show_theme, theme}) {
     const [total_words, set_total_words] = useState(total_words_length());
@@ -13,6 +13,7 @@ function Main({show_theme_active, change_theme, show_theme, theme}) {
     const [page, set_page] = useState('Menu');
     const [learn, set_learn] = useState([]);
     const [edit_word, set_edit_word] = useState([]);
+    const [listen_word, set_listen_word] = useState('');
 
     const pages = {
         "Menu": <Menu
@@ -21,7 +22,8 @@ function Main({show_theme_active, change_theme, show_theme, theme}) {
         />,
         "Daily words": <DailyWords
             change_page_name={change_page_name}
-            words={local_storage_daily()}
+            listen_button={listen_button}
+            set_listen_word={set_listen_word}
         />,
         "New word": <NewWord
             change_page_name={change_page_name}
@@ -39,12 +41,16 @@ function Main({show_theme_active, change_theme, show_theme, theme}) {
             learn_words={learn_words}
             edit_button={edit_button}
         />,
-        "Learn words": <RandomWords
+        "Learn words": <LearnWords
             change_page_name={change_page_name}
+            listen_button={listen_button}
+            set_listen_word={set_listen_word}
         />,
-        "Learn": <LearnWords 
+        "Learn": <Learn 
             change_page_name={change_page_name}
             words={learn}
+            listen_button={listen_button}
+            set_listen_word={set_listen_word}
         />,
     };
 
@@ -91,6 +97,18 @@ function Main({show_theme_active, change_theme, show_theme, theme}) {
                 }
             }
             set_learn(words);
+        }
+    }
+
+    function listen_button() {
+        const synth = window.speechSynthesis;
+        if(synth.speaking) {
+            synth.cancel();
+        }
+
+        if(listen_word) {
+            const msg = new SpeechSynthesisUtterance(listen_word.name);
+            synth.speak(msg);
         }
     }
 
@@ -161,13 +179,6 @@ function Main({show_theme_active, change_theme, show_theme, theme}) {
             localStorage.setItem("words", JSON.stringify(data));
             local_storage_update();
             set_total_words(total_words_length());
-        }
-    }
-
-    function local_storage_daily() {
-        const json_string = localStorage.getItem("daily");
-        if (json_string) {
-            return JSON.parse(json_string).words;
         }
     }
 

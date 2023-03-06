@@ -1,6 +1,6 @@
-import {Back, Refresh, Remove, Learn, Deselect, AddWord, Edit} from './Buttons.js';
+import {Back, Refresh, Remove, Learn, Deselect, AddWord, Edit, Listen} from './Buttons.js';
 
-function Top({change_page_name, refresh_button, my_words, page_name, form, form_name_button, edit_status}) {
+function Top({change_page_name, refresh_button, listen_button, my_words, page_name, form, form_name_button, edit_status}) {
     let buttons = [];
 
     if (my_words) {
@@ -32,10 +32,20 @@ function Top({change_page_name, refresh_button, my_words, page_name, form, form_
 
     return (
         <div className="top">
-            <div className="left_buttons">
+            <div className={
+                    (refresh_button && listen_button)
+                        ? 'left_buttons learn_words'
+                        : 'left_buttons'
+                        }>
                 {
                     (refresh_button)
                         ? <Refresh refresh={refresh_button} />
+                        : <></>
+                }
+
+                {
+                    (listen_button)
+                        ? <Listen listen_button={listen_button} />
                         : <></>
                 }
 
