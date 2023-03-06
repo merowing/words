@@ -104,7 +104,7 @@ function WordsPage({words, set_listen_word}) {
                     <span className='sentence'>{word.sentence}</span>
                 </div>
                 <ul>
-                    <li>
+                    <li className="previous-button">
                         <button
                             type='button'
                             onClick={
@@ -116,7 +116,7 @@ function WordsPage({words, set_listen_word}) {
                         >Previous</button>
                     </li>
                     <li>{`${id + 1} / ${words.length}`}</li>
-                    <li>
+                    <li className="next-button">
                         <button
                             type='button'
                             onClick={

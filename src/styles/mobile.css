@@ -70,7 +70,7 @@
 
 
     .main div.daily_block ul {
-        justify-content: space-between;
+        justify-content: center;
         order: 3;
     }
     .main div.daily_block ul li button {
@@ -79,6 +79,10 @@
     .main div.daily_block ul li button:hover {
         background: none;
         color: #000;
+    }
+    .main div.daily_block ul li.previous-button,
+    .main div.daily_block ul li.next-button {
+        display: none;
     }
     div.daily_word {
         height: 100%;

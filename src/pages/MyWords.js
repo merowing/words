@@ -68,9 +68,11 @@ function MyWords({words, change_page_name, remove_words, learn_words, edit_butto
     function select_all_button() {
         const ids = list.map(word => word.id);
 
-        set_ids(ids);
-        set_chose_words(ids);
-        set_show_control_buttons(true);
+        if(ids.length) {
+            set_ids(ids);
+            set_chose_words(ids);
+            set_show_control_buttons(true);
+        }
     }
 
     return (

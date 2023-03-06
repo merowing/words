@@ -78,13 +78,10 @@ nav ul li button:hover {
   border: 1px solid #808080;
   color: #fff;
 }
-nav ul li button.disable {
-  color: #eee;
-  background-color: #ccc;
-  cursor: not-allowed;
+nav ul li.disable {
   display: none;
 }
-nav ul li button.daily {
+nav ul li.daily button {
   border: 1px solid orange;
   color: #fff;
   background-color: darkorange;

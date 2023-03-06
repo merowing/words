@@ -25,7 +25,10 @@ function Menu({change_page_name, words_len}) {
                                 : '';
 
                             return (
-                                <li key={`li-${name}-${i}`}>
+                                <li
+                                    key={`li-${name}-${i}`}
+                                    className={class_string}
+                                >
                                     <button
                                         key={`button-${name}-${i}`}
                                         type="button"
@@ -37,7 +40,6 @@ function Menu({change_page_name, words_len}) {
                                                 }
                                                 : null
                                         }
-                                        className={class_string}
                                     >{name}</button>
                                 </li>
                             );
