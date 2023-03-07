@@ -27,7 +27,7 @@ function NewWord({change_page_name, local_storage_add}) {
                 set_edit_status(true);
             } else {
                 event.target['name'].classList.add('empty');
-                set_unavailable_word_message('the word is already exists!');
+                set_unavailable_word_message('the word already exists!');
             }
         }
     }
