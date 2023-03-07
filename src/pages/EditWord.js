@@ -4,9 +4,10 @@ import '../styles/NewWord.css';
 import '../styles/EditWord.css';
 import { useEffect, useState } from 'react';
 
-function NewWord({change_page_name, local_storage_data, edit_word}) {
+function EditWord({change_page_name, local_storage_data, edit_word}) {
 
     let [edit_status, set_edit_status] = useState(false);
+    let [unavailable_word_message, set_unavailable_word_message] = useState('');
     const [word_index, word] = edit_word;
 
     function get_form_data(event) {
@@ -16,10 +17,24 @@ function NewWord({change_page_name, local_storage_data, edit_word}) {
         const form_data = Object.fromEntries(form.entries());
         const id = local_storage_data[word_index].id;
 
-        local_storage_data[word_index] = {id, ...form_data};
-        localStorage.setItem("words", JSON.stringify(local_storage_data));
+        const is_available = local_storage_data.some((word) => {
+            return (
+                word.name.toLowerCase() === form_data['name'].toLocaleLowerCase()
+                && id !== word.id
+            )
+        });
 
-        set_edit_status(true);
+        set_unavailable_word_message('');
+        event.target['name'].classList.remove('empty');
+        if (!is_available) {
+            local_storage_data[word_index] = {id, ...form_data};
+            localStorage.setItem("words", JSON.stringify(local_storage_data));
+
+            set_edit_status(true);
+        } else {
+            event.target['name'].classList.add('empty');
+            set_unavailable_word_message('the word is already exists!');
+        }
     }
 
     useEffect(() => {
@@ -43,12 +58,14 @@ function NewWord({change_page_name, local_storage_data, edit_word}) {
                 form_name_button="Edit"
                 edit_status={edit_status}
             />
+            <div className='unavailable_word_message'>{unavailable_word_message}</div>
             <Form
                 get_form_data={get_form_data}
+                set_unavailable_word_message={set_unavailable_word_message}
                 edit_word={word}
             />
         </>
     )
 }
 
-export default NewWord;
+export default EditWord;

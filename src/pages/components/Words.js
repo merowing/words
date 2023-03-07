@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
 
-function WordsPage({words, set_listen_word}) {
+function WordsPage({words, set_listen_word, justifyContent}) {
     let [{id, word}, set_current_word] = useState({id: 0, word: words[0]});
 
     const next_word = useCallback((ind) => {
@@ -20,7 +20,7 @@ function WordsPage({words, set_listen_word}) {
             }
         );
 
-        set_listen_word(words[ind]);
+        set_listen_word(words[ind].name);
 
     }, [id, words, set_listen_word]);
 
@@ -39,8 +39,8 @@ function WordsPage({words, set_listen_word}) {
     }, [next_word]);
 
     useEffect(() => {
-        set_current_word({id: 0, word: words[0]});
-        set_listen_word(words[0]);
+            set_current_word({id: 0, word: words[0]});
+            set_listen_word(words[0].name);
     }, [words, set_listen_word]);
 
     useEffect(() => {
@@ -68,7 +68,7 @@ function WordsPage({words, set_listen_word}) {
             ) {
                 const screen_width = event.target.offsetWidth;
                 const position = event.clientX;
-                
+
                 if (position > screen_width / 2) {
                     next_word(1);
                 }
@@ -87,7 +87,10 @@ function WordsPage({words, set_listen_word}) {
     return (
         <>
             <div className='daily_block'>
-                <div className='daily_word'>
+                <div
+                    className='daily_word'
+                    style={(justifyContent) ? {justifyContent} : {}}
+                >
                     <span className='word'
                         onClick={
                             (event) => {

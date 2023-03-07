@@ -28,7 +28,7 @@ function random_words() {
     return words;
 }
 
-function LearnWords({change_page_name, listen_button, set_listen_word}) {
+function LearnWords({change_page_name}) {
     let [words, set_words] = useState([]);
 
     function refresh_button() {
@@ -38,6 +38,19 @@ function LearnWords({change_page_name, listen_button, set_listen_word}) {
     useEffect(() => {
         set_words(random_words());
     }, []);
+
+    const [listen_word, set_listen_word] = useState('');
+    function listen_button() {
+        const synth = window.speechSynthesis;
+        if (synth.speaking) {
+            synth.cancel();
+        }
+    
+        if (listen_word) {
+            const msg = new SpeechSynthesisUtterance(listen_word);
+            synth.speak(msg);
+        }
+    }
 
     return (
         <>

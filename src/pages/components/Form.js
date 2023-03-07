@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-function Form({get_form_data, edit_word, set_unavailable_word}) {
+function Form({get_form_data, edit_word, set_unavailable_word_message}) {
 
     let [form_name, set_form_name] = useState('');
     let [form_translate, set_form_translate] = useState('');
@@ -30,13 +30,15 @@ function Form({get_form_data, edit_word, set_unavailable_word}) {
 
     function clear_form(event) {
         event.target.classList.remove('empty');
-        set_unavailable_word('');
+        set_unavailable_word_message('');
     }
 
     return (
         <form id='add_form' onSubmit={get_form_data} onClick={clear_form}>
-            <input type='text' name='name' placeholder='Word' defaultValue={(edit_word) ? form_name : ''} onChange={change_name} />
-            <input type='text' name='translate' placeholder='Translate' defaultValue={(edit_word) ? form_translate : ''} onChange={change_translate} />
+            <div className="inner_inputs">
+                <input type='text' name='name' placeholder='Word' defaultValue={(edit_word) ? form_name : ''} onChange={change_name} />
+                <input type='text' name='translate' placeholder='Translation' defaultValue={(edit_word) ? form_translate : ''} onChange={change_translate} />
+            </div>
             <textarea name='sentence' placeholder='Example sentence' defaultValue={(edit_word) ? form_sentence : ''} onChange={change_sentence}></textarea>
         </form>
     )

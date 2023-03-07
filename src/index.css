@@ -40,10 +40,10 @@ ul {
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  position: relative;
   align-items: center;
   padding-top: 170px;
   height: 100%;
+  text-align: center;
 }
 div.empty {
   height: 100%;
@@ -141,6 +141,12 @@ footer.hidden {
   height: 40px;
   justify-content: center;
   align-items: center;
+  padding-right: inherit;
+  padding-top: inherit;
+  z-index: 1;
+}
+.theme.hidden {
+  display: none;
 }
 .theme:hover {
   cursor: pointer;
@@ -222,11 +228,11 @@ body.night {
   background-color: #fff;
   color: #000;
 }
-.night form#add_form,
-.night form#add_form textarea {
+.night .main form,
+.night .main form textarea {
   background: #696969;
 }
-.night form#add_form textarea {
+.night form textarea {
   color: #fff;
 }
 .night .word {

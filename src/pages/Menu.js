@@ -1,4 +1,4 @@
-const names = ['Learn words', 'New word', 'My words', 'Daily words'];
+const names = ['Daily words', 'Learn words', 'New word', 'My words'];
 
 function daily_status(words_len) {
     const json_string = localStorage.getItem("daily");

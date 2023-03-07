@@ -1,4 +1,4 @@
-@media (min-width: 280px) and (max-width: 667px) {
+@media (min-width: 280px) and (max-width: 914px) {
     #root {
         padding-bottom: 0;
         z-index: 0;
@@ -30,9 +30,6 @@
 
     footer {
         width: 100%;
-        z-index: 1;
-        position: fixed;
-        bottom: 20px;
     }
     footer.hidden {
         display: none;
@@ -51,16 +48,16 @@
         background-color: #fff;
         z-index: 2;
     }
-    .main form textarea {
-        height: 140px;
-    }
-    .main form input {
+    .main form div.inner_inputs input {
         width: 100%;
         padding: 12px 8px;
     }
     .buttons button.add_button:hover {
         background: none;
         color: #000;
+    }
+    form div.inner_inputs {
+        flex-direction: column;
     }
 
 
@@ -96,5 +93,89 @@
     div.left_buttons button:hover {
         background: none;
         color: #000;
+    }
+}
+
+@media (min-width: 280px) and (max-width: 914px) and (orientation: landscape) {
+    footer {
+        display: none;
+    }
+
+
+    .inner {
+        justify-content: center;
+    }
+
+
+    form {
+        padding-bottom: 0;
+        height: 100%;
+    }
+    form div.inner_inputs {
+        flex-direction: row;
+    }
+    form div {
+        flex-direction: row;
+    }
+    form div.inner_inputs input {
+        flex: 1;
+    }
+    .main form textarea {
+        height: auto;
+        flex: 1;
+    }
+
+
+    .main {
+        justify-content: center;
+        height: 100%;
+        position: relative;
+    }
+    .main nav {
+        padding-top: 0;
+        height: auto;
+    }
+    .main div.unavailable_word_message {
+        width: auto;
+        position: absolute;
+        top: 0;
+    }
+    .main .top {
+        margin-bottom: 15px;
+    }
+
+
+    .main div.words_wrapper {
+        height: 100%;
+    }
+
+
+    .main div.daily_block {
+        gap: 0;
+    }
+    .main div.daily_block ul {
+        margin-top: 0;
+    }
+    .main div.daily_word {
+        padding-bottom: 55px;
+    }
+
+
+    div.left_buttons.learn_words > * {
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+    div.left_buttons.learn_words .listen_button {
+        top: 40px;
+    }
+}
+
+@media (max-height: 300px) and (orientation: landscape) {
+    .main nav ul {
+        display: grid;
+        grid-template-columns: auto auto;
+        grid-row-gap: 10px;
+        grid-column-gap: 10px;
     }
 }

@@ -5,7 +5,7 @@ import '../styles/NewWord.css';
 
 function NewWord({change_page_name, local_storage_add}) {
     let [edit_status, set_edit_status] = useState(false);
-    let [unavailable_word, set_unavailable_word] = useState('');
+    let [unavailable_word_message, set_unavailable_word_message] = useState('');
 
     function get_form_data(event) {
         event.preventDefault();
@@ -17,7 +17,7 @@ function NewWord({change_page_name, local_storage_add}) {
             if (value === "") event.target[item].classList.add('empty');
         }
         
-        set_unavailable_word('');
+        set_unavailable_word_message('');
 
         if (data.name !== "" && data.translate !== "") {
             const check_available = local_storage_add(data);
@@ -27,7 +27,7 @@ function NewWord({change_page_name, local_storage_add}) {
                 set_edit_status(true);
             } else {
                 event.target['name'].classList.add('empty');
-                set_unavailable_word('the word is already exists!');
+                set_unavailable_word_message('the word is already exists!');
             }
         }
     }
@@ -49,10 +49,10 @@ function NewWord({change_page_name, local_storage_add}) {
                 form_name_button="Add"
                 edit_status={edit_status}
             />
-            <div className='unavailable_word'>{unavailable_word}</div>
+            <div className='unavailable_word_message'>{unavailable_word_message}</div>
             <Form
                 get_form_data={get_form_data}
-                set_unavailable_word={set_unavailable_word}
+                set_unavailable_word_message={set_unavailable_word_message}
             />
         </>
     )

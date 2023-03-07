@@ -41,7 +41,6 @@ div.daily_word {
     flex-direction: column;
     align-items: center;
     gap: 14px;
-    text-align: center;
     height: 100%;
     justify-content: center;
     width: inherit;
@@ -53,5 +52,5 @@ div.daily_word span.word {
 div.daily_word span.sentence {
     font-style: italic;
     color: #808080;
-    height: 60px;
+    width: 80%;
 }
