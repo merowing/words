@@ -1,3 +1,15 @@
+### How to run
+* create folder and type `git init` command
+* git pull https://github.com/merowing/words.git
+* npm install
+* npm start
+
+<br>
+
+---
+
+<br>
+
 1. You can change light mode for comfortable reading in night.
     * Daily words show only once in a day. Displaying 10 words that they consist random of all your words.
 
