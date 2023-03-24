@@ -3,7 +3,10 @@ import Words from './components/Words';
 import Top from './components/Top';
 import { useState } from 'react';
 
-const words = JSON.parse(localStorage.getItem("daily")).words;
+const daily_storage = localStorage.getItem("daily");
+let words = (daily_storage)
+    ? JSON.parse(daily_storage).words
+    : [];
 
 function DailyWords({change_page_name}) {
     const json_string = localStorage.getItem("daily");
